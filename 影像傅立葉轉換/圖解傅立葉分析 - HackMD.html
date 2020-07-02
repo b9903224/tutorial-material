@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="csrf-token" content="ZkwLMrIF-5FA5kDV5xHvru6CGPLDxUnvpN5U">
+    
+    
+    <meta name="description" content="# 圖解傅立葉分析  本共筆是 [jserv](http://wiki.csie.ncku.edu.tw/User/jserv) 因應教學需要，對 [傅立葉分析之掐死教程](https://zhuan">
+    
+    <title>圖解傅立葉分析 - HackMD</title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+	<link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+    
+<script nonce="ede134d3-6fb0-49dc-85b1-b99471fc46df">
+window.domain = 'hackmd.io'
+window.urlpath = ''
+window.debug = false
+window.version = '1.3.0'
+window.brand = 'HackMD'
+
+window.GOOGLE_API_KEY = 'AIzaSyCjSrqWHhmWJnoI7JlD88XDSaBgiKbaenA'
+window.GOOGLE_CLIENT_ID = '911617723593-drikdibvvn63slfd6kbqigo8ql1no55s.apps.googleusercontent.com'
+window.DROPBOX_APP_KEY = 'rdoizrlnkuha23r'
+
+
+window.ASSET_URL = 'https://assets.hackmd.io'
+
+window.USER_CAN_CREATE_TEAM = true
+window.PAYMENT_ENABLED = true
+window.FREE_TEAM_NUM = 3
+window.FREE_TEAM_MEMBER_NUM = 3
+window.FREE_PUBLIC_TEAM_NUM = 10
+
+window.EE_SITE_ENABLE = false
+window.EE_SITE_NAME = 'false'
+window.EE_SITE_LINK = 'false'
+
+window.ALLOW_ANONYMOUS = true
+window.PUBLIC_OVERVIEW = false
+window.INTERNAL_PUBLIC_OVERVIEW = false
+
+
+window.SHOW_HOT_NOTES = false
+
+
+
+window.HOT_NOTES_TIME_TYPE = 'week'
+
+
+
+window.SHOW_OVERVIEW = false
+
+
+window.USE_CDN = false
+
+
+window.MENTIONS = {}
+
+
+
+window.MENTION_ANCHORS = []
+
+
+
+window.COMMENT_ANCHORS = []
+
+
+
+window.IS_OWNER = false
+
+
+
+window.IS_TEAM_ADMIN = false
+
+
+
+window.IS_INVITEE_ADMIN = false
+
+
+
+window.USER_PROFILE = {"name":"Guest Paul"}
+
+
+
+window.VERSION_TIME = '1587834690645'
+
+
+ 
+window.canEdit = false
+
+
+ 
+window.canWriteComment = false
+
+
+</script>
+
+
+    
+<!-- Google Tag Manager -->
+<script nonce="ede134d3-6fb0-49dc-85b1-b99471fc46df">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLW9Z3');</script>
+<!-- End Google Tag Manager -->
+
+
+    <meta property="fb:app_id" content="1436904003272070">
+
+<meta name="twitter:image:src" content="https://i.imgur.com/6Ewegae.png" />
+
+<meta name="twitter:site" content="@hackmdio" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="圖解傅立葉分析 - HackMD" />
+
+<meta name="twitter:description" content="# 圖解傅立葉分析  本共筆是 [jserv](http://wiki.csie.ncku.edu.tw/User/jserv) 因應教學需要，對 [傅立葉分析之掐死教程](https://zhuan" />
+
+
+<meta property="og:image" content="https://i.imgur.com/6Ewegae.png" />
+
+<meta property="og:site_name" content="HackMD" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="圖解傅立葉分析 - HackMD" />
+
+<meta property="og:description" content="# 圖解傅立葉分析  本共筆是 [jserv](http://wiki.csie.ncku.edu.tw/User/jserv) 因應教學需要，對 [傅立葉分析之掐死教程](https://zhuan" />
+
+
+	
+    <link rel="stylesheet" href='https://assets.hackmd.io/build/emojify.js/dist/css/basic/emojify.min.css'>
+     <link href="https://assets.hackmd.io/build/font-vendor.b86e2bf451b246b1a88e.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/common-vendor.b8ecfc406ac0b5f77a26.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/pretty-vendor.83ac49e057c3eac4fce3.css" rel="stylesheet"><link href="https://assets.hackmd.io/build/pretty.d95b52df2f9c72d364a0.css" rel="stylesheet">
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+<![endif]-->
+
+</head>
+
+<body style="display:none;">
+    <div class="ui-infobar container-fluid unselectable hidden-print">
+        <div class="row">
+            <div class="col-xs-12 ui-infobar-inner">
+                <div class="ui-infobar__user-info">
+                    <ul class="list-inline">
+                        <li>
+                            
+                                <span class="ui-lastchangeuser" data-profile="DebbyZhou213">&thinsp;<a class="ui-user-icon small" style="background-image: url(https://i.imgur.com/FVJcoUa.png);" target="_blank"></a></span>
+                            
+                            &nbsp;<span class="text-uppercase ui-status-lastchange"></span>
+                            <span class="ui-lastchange text-uppercase" data-createtime="Wed Sep 20 2017 17:04:57 GMT+0000 (UTC)" data-updatetime="Sat Apr 25 2020 17:11:30 GMT+0000 (UTC)"></span>
+                        </li>
+                        
+                        
+                            <li>
+                                <span class="ui-owner-team" data-profile="sysprog">
+                                    &thinsp;<a class="ui-user-icon small" style="background-image: url(https://i.imgur.com/6Ewegae.png);" target="_blank"></a>
+                                    &nbsp;<span class="text-uppercase">擁有這篇筆記</span>
+                                </span>
+                            </li>
+                        
+                    </ul>
+                </div>
+
+                <div class="text-right ui-infobar__actions">
+                    <ul class="list-inline">
+                        
+                            <li>
+                                <a href="#" class="ui-signin btn btn-default btn-md"><i class="fa fa-pencil"></i> <span class="hidden-xs" style="margin-left: 3px">編輯</span></a>
+                            </li>
+                        
+                        <li>
+                            
+                                <a class="ui-signin btn btn-default text-muted" href="#"><span>訂閱</span></a>
+                            
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        
+    </div>
+    <div id="doc" class="container-fluid markdown-body" data-hard-breaks="true"># 圖解傅立葉分析
+
+本共筆是 [jserv](http://wiki.csie.ncku.edu.tw/User/jserv) 因應教學需要，對 [傅立葉分析之掐死教程](https://zhuanlan.zhihu.com/p/19763358) 一文所做的改編，原文資訊如下：
+:::warning
+作者: 韓昊 / 知乎: [Heinrich](http://www.zhihu.com/people/Erdnussoelbearbeiter) / 微博: @[花生油工人](http://weibo.com/u/1828977560?topnav=1&amp;wvr=5&amp;topsug=1)
+知乎專欄: [與時間無關的故事](http://zhuanlan.zhihu.com/wille)
+謹以此文獻給大連海事大學的吳楠、柳曉鳴、王新年，及張晶泊老師。
+:::
+
+改編訴求:
+1. 採納台灣慣用術語，並透過 [HackMD](https://hackmd.io/) 用 LaTeX 重新排版;
+2. 更緊湊的陳述，強化閱讀密度;
+3. 針對關鍵概念補充圖文，特別涉及到工程應用;
+
+:::success
+搭配觀看影片 [傅立葉轉換的視覺化](https://www.youtube.com/watch?v=spUNpyF58BY)，使用動畫教將函數圖形纏繞在單位圓上，並逐步探討物理意義。記得打開 YouTube 字幕，有台灣繁體
+:::
+
+## 核心思想：透過圖解而非數學公式，去體驗傅立葉分析
+
+![](https://i.imgur.com/M8jnn9B.png)
+
+傅立葉 (Fourier) 分析不僅是個數學工具，更是種徹底顛覆一個人以前世界觀的思維模式。但不幸的是，傅立葉分析的公式看起來太複雜了，所以很多人囫圇吞棗，並從此對它深惡痛絕。這麼有意思的東西居然成了大學裡的殺手課程，因此，筆者希望撰寫一篇生動的科普文章來解釋傅立葉分析，甚至讓高中生也能看懂，體會到藉由傅立葉分析看到世界的另一個樣貌。對於已有一定數理基礎的朋友，細讀後也會有新的發現。
+　　　　
+為了行文的便利，以下無論是 $cos$ 還是 $sin$，都統一用「弦波」(sinusoid, sine wave) 一詞來代表簡諧波。
+　　
+##  一、什麼是頻域
+
+自我們呱呱落地，時間貫串著我們所見的世界，舉凡股票的走勢、人的身高、汽車的軌跡等等，都隨著時間發生變化。如此以時間作為參照，來觀察動態世界的方法，我們稱為時域分析。依據我們的直覺，世間萬物都隨著時間不停變化著，而且永遠不會靜止。但若有人跟說，用另一種方法來觀察世界的話，這世界會是永恆不變，你會不會詫異呢？這個用截然不同的視角去觀測萬物，得出「靜止」的世界，叫做頻域 (frequency domain)。
+　　
+先舉一個公式上並非很恰當，但意義上卻相當貼切的例子：
+在你的理解中，一段音樂是什麼呢？
+![](https://i.imgur.com/qGgVn4x.png)
+
+這是我們對音樂最普遍的理解，一個隨著時間變化的震動。相信對於熟悉樂理的朋友來說，音樂更直觀的理解是這樣：
+![](https://i.imgur.com/GSjoUK7.png)
+
+前一張圖片是音樂在時域的模樣，後一張圖片則是音樂在頻域的樣貌。想像自己在音樂演奏會上，聆聽台上音樂的波瀾起伏，隨著時間的推進，感受音樂癒合寂寞的傷疤和鼓舞人心，這無疑是「變動」的，但能夠讓各席演奏者得以展現完美演出的關鍵因素，卻是樂譜，就這個視角來看，世界彷彿是「靜止」的。頻域這一概念對人們來說，從來不是陌生的概念，只是人們沒意識到而已。
+
+我們不妨先做以下不精準對比：
+　
+- [x] 時域
+![](https://i.imgur.com/pCWnIle.png)
+
+- [x] 頻域
+![](https://i.imgur.com/Ch7Thgd.png)
+
+&gt; 以下改編自 [傅立葉轉換到底在轉換什麼?](https://www.eebreakdown.com/2015/05/blog-post_30.html)
+
+設想一個場景：分別有一男一女新聞主播錄製節目，把男聲和女聲轉成電訊號並保存。時域波形展現如下，波形的振幅大小代表音量，我們可一眼區分男聲或女聲嗎？
+* [男生聲音檔](https://drive.google.com/open?id=1XY3UvqVGXshokcEVmq1I6wGPsmoV9L11) / [女生聲音檔](https://drive.google.com/open?id=12qvpRk4kgmjzOD1XNn_EfPSLCjq9c6JO)
+
+
+![](https://i.imgur.com/k48CVql.png)
+
+可是聲音一旦經過我們的耳朵分析後，就可輕易辨別哪個是女聲、哪個是男聲。聲音波形在頻譜上看到的結果如下，不難看出，男聲低頻成分比較大，女聲高頻成分比男聲豐富。
+
+![](https://i.imgur.com/uXlFJ7P.png)
+&gt; 男主播為[謝向榮](https://zh.wikipedia.org/wiki/%E8%AC%9D%E5%90%91%E6%A6%AE)，女主播為[陳海茵](https://zh.wikipedia.org/wiki/%E9%99%B3%E6%B5%B7%E8%8C%B5)
+
+透過時域轉換為頻域，讓我們得以定位出在特定時間範圍內流動的訊號，從而辨別其內涵為何，這裡說的內涵，同時包括「內容」和該內容的「意義」。在時域，我們觀察到鋼琴的琴弦一會上一會下的擺動，就如同一支股票的走勢；而在頻域，只有那一個永恆的音符。換言之，你眼中看似落葉紛飛變化無常的世界，實際只是躺在造物者懷中一份早已譜好的樂章。
+
+:::success
+搭配觀看影片 [音樂和測度理論](https://www.youtube.com/watch?v=cyW5z-M2yzw)，記得打開 YouTube 字幕
+:::
+
+傅立葉告訴我們，任何週期函數，都可以看作是不同振幅，不同相位弦波的疊加。在第一個例子裡我們可以理解為，利用對不同琴鍵不同力度，不同時間點的敲擊，可以組合出任何一首樂曲。
+
+貫穿時域與頻域的方法之一，就是傅立葉分析。傅立葉分析可分為傅立葉級數（Fourier series）和傅立葉轉換(Fourier transformation)，我們從簡單的開始談起。
+
+
+## 二、傅立葉級數的頻譜
+
+如果我說能用 $sin(x)$ 和 $cos(x)$ 等弦波疊加出一個帶 90 度角的矩形波來，你會相信嗎？乍聽之下不可思議，有稜有角的矩形波可用曲線疊加？！
+
+:::success
+搭配觀看影片 [Fourier Transform, Fourier Series, and frequency spectrum](https://www.youtube.com/watch?v=r18Gi8lSkfM)，有英文字幕
+:::
+
+考慮以下圖例：
+![](https://i.imgur.com/EOVorht.png)
+
+* 圖例 `(a)` 是 1 個郁悶的弦波 $cos(x)$
+* 圖例 `(b)` 是 2 個賣萌的弦波的疊加 $cos(x) + a.cos(3x)$
+* 圖例 `(c)` 是 4 個發春的弦波的疊加
+* 圖例 `(d)` 是 10 個便秘的弦波的疊加
+
+隨著弦波數量逐漸的增長，他們最終會疊加成一個標準的矩形，大家從中體會到了什麼道理？
+&gt; 只要努力，彎的都能掰直？！
+
+隨著疊加的遞增，所有弦波中上升的部分逐漸讓原本緩慢增加的曲線不斷變陡，而所有弦波中下降的部分又抵消上升到最高處時繼續上升的部分，使其變為水平線。一個矩形就這麼疊加而成了。但要多少個弦波疊加起來才能形成一個標準 90 度角的矩形波呢？答案是無窮多個。
+　　
+不僅是矩形，你能想到的任何波形都可運用此法，透過弦波疊加起來。這是沒有接觸過傅立葉分析的人在直覺上的第一個難點，但只要接受這樣的設定，一切就開始有意思。
+
+換個角度去看待上面的弦波累加成矩形波圖例：
+![](https://i.imgur.com/VngFp8K.jpg)
+
+在這幾幅圖，最前面黑色的線就是所有弦波疊加而成的總和，也就是越來越接近矩形波的那個圖形。而後面依不同顏色排列而成的弦波就是組合為矩形波的各個分量。這些弦波按照頻率從低到高從前向後排列開來，而每一個波的振幅都是不同的。一定有細心的讀者發現了，每兩個弦波之間都還有一條直線，那並不是分割線，而是振幅為 `0` 的弦波！也就是說，為組成特殊的曲線，有些弦波成分其實沒必要。
+
+這裡不同頻率的弦波，我們稱為頻率分量。
+　　
+若我們把第一個頻率最低的頻率分量看作 `1`，我們就有了構建頻域的最基本單元。
+
+對於我們最常見的有理數軸，數字 `1` 就是有理數軸的基本單元。時域的基本單元就是「1 秒」，如果我們將一個角頻率為 $\omega_0$ 的弦波 $cos(\omega_0t)$ 看作基礎，那麼頻域的基本單元就是 $\omega_0$。
+
+有了 `1`，還要有 `0` 才能構成世界，那麼頻域的 `0` 是什麼呢？ $cos(0t)$ 是個週期無限長的弦波，也就是一條直線！所以在頻域，`0` 頻率也被稱為直流分量，在傅立葉級數的疊加中，它僅僅影響全部波形相對於數軸整體向上或是向下而不改變波的形狀。
+　　
+接下來，讓我們回想中學的數學如何定義弦波：
+![](https://i.imgur.com/VxUCO6v.png)
+
+弦波就是一個圓周運動在一條直線上的投影。所以頻域的基本單元也可以理解為一個始終在旋轉的圓:
+![](https://i.imgur.com/qggftoY.gif)
+
+&gt; 動圖出處: [File:Fourier series square wave circles animation.gif](http://en.wikipedia.org/wiki/File:Fourier_series_square_wave_circles_animation.gif)
+
+![](https://i.imgur.com/G0iS9cn.gif)
+
+&gt; 動圖出處: [File:Fourier series sawtooth wave circles animation.gif](http://en.wikipedia.org/wiki/File:Fourier_series_sawtooth_wave_circles_animation.gif)
+
+介紹頻域的基本組成單元後，我們就可觀察一個矩形波，在頻域裡截然不同的面貌：
+![image alt](https://i.imgur.com/aqKXAyi.jpg)
+　　
+這是什麼怪東西？
+　　
+這是矩形波在頻域的模樣，是不是完全認不出來？沒關係，我們再來對照頻域圖像，也就是俗稱的頻譜:
+![](https://i.imgur.com/cUuIRiu.jpg)
+　　
+再清楚一點：
+![](https://i.imgur.com/8aHWGyk.jpg)
+
+不難發現，在頻譜中，偶數項的振幅都是 0，也就對應了圖中的彩色直線。振幅為 0 的弦波。
+![](https://i.imgur.com/RUUi7iD.gif)
+
+&gt; 動圖出處: [File:Fourier series and transform.gif](http://en.wikipedia.org/wiki/File:Fourier_series_and_transform.gif)
+
+回想剛才的例子究竟意味著什麼。記得前面說過的那句「世界是靜止的」嗎？想像一下，世界上每個看似混亂的表象，實際都是一條時間軸上不規則的曲線，但實際這些曲線都是由這些無窮無盡的弦波組成。我們看似不規律的事情反而是規律的弦波在時域上的投影，而弦波又是一個旋轉的圓在直線上的投影。
+
+傅立葉 ([Joseph Fourier](https://en.wikipedia.org/wiki/Joseph_Fourier), 1768-1830）生於法國藝術和歷史之都 Auxerre，因研究熱傳導理論名於世，他提出的傅立葉級數方法是工程數學的重要工具。1807 年，時年 39 歲的傅立葉於法國科學學會上展示一篇論文《固體中的熱傳導》(On the Propagation of Heat in Solid Bodies)，包含當時極具爭議的論斷：
+&gt; 「任何連續周期信號可由一組適當的正弦曲線組合而成」
+
+引起法國另外兩位著名數學家拉普拉斯 ([Laplace](https://en.wikipedia.org/wiki/Pierre-Simon_Laplace)) 和拉格朗日 ([Lagrange](https://en.wikipedia.org/wiki/Joseph-Louis_Lagrange)) 的關注。
+
+58 歲的拉普拉斯贊成傅立葉的觀點，但 71 歲的拉格朗日 (地位有如終生職的院士) 反對，後者反對的理由是「正弦曲線無法組合成一個帶有稜角的信號」。屈服於朗格朗日的威望，該論文直到朗格朗日去世後的第 15 年，經過 Poisson, Cauchy，一直到 Dirichlet 等人的論證，爭議才落幕，傅立葉的成果得以發表。
+
+之後的科學家證明：傅立葉和拉格朗日兩人的觀點都正確：
+* 有限數量的正弦曲線的確無法組合成一個帶有稜角的信號;
+* 無限數量的正弦曲線的組合從能量的角度可以非常無限逼近帶有稜角的信號;
+
+
+## 三、傅立葉級數的相位譜
+
+上面的觀點是「從側面看」，接著我們改變視角為「從下面看」。
+  
+傅立葉分析究竟可做什麼？無論聽廣播還是看電視，我們一定對一個詞不陌生 —— 頻道。頻道就是頻率的通道，不同的頻道就是將不同的頻率作為一個通道來進行資訊傳遞。下面大家嘗試一件事：
+
+![](https://i.imgur.com/5oxW3wu.png)
+
+透過 Google 搜尋 (對！把數學式貼入搜尋列即可製圖) 為 $sin(x)$ 製圖:
+![](https://i.imgur.com/LAXRFNa.png)
+
+接著繪製 $sin(3x)+sin(5x)$。
+![](https://i.imgur.com/3kQPlrv.png)
+
+倘若我把 $sin(3x)+sin(5x)$ 的曲線給你，但前提是你不知道這個曲線的方程式，現在需要你把 $sin(5x)$ 這項從圖裡移出，看看剩下的是什麼。這幾乎無法徒手達成。但在頻域呢？則簡單的很，無非就是幾條豎線而已。
+
+![](https://i.imgur.com/islUOoE.gif)
+&gt; 動畫取自 [Phase modulation](https://en.wikipedia.org/wiki/Phase_modulation)
+
+所以很多在時域看似不可能做到的數學操作，在頻域相反很容易。這就是需要傅立葉轉換的地方。尤其是從某條曲線中去除一些特定的頻率成分，這在工程上稱為濾波，是信號處理最重要的概念之一，只有在頻域才能輕鬆達成。
+
+:::success
+延伸閱讀: [Convolution and the Fourier Transform: Math!](https://www.youtube.com/watch?v=rzCO5fQysw0)
+:::
+
+再說一個略為複雜但更重要的用途：求解微分方程，後者在許多領域用得到。求解微分方程是件相當麻煩的事情，因為不僅涉及加減乘除，還要計算微分積分。而傅立葉轉換則可讓微分和積分在頻域中變為乘法和除法，大學數學瞬間變小學算術，這也是為何研究熱傳導理論的傅立葉會需要新的方法。
+
+在我們日常生活的應用案例更是俯拾即是，透過網際網路上傳、下載，或者編輯聲音檔案時，我們處理怎樣的音頻呢？你當然可用最初錄製出的原始音頻，但若如此，需要傳送的檔案將會非常大，因為這些檔案是「完整」且沒有失真：錄製時記錄下的所有頻率都被保存了下來，混合在一起得到了最終的音軌。但如果將一小段音軌進行傅立葉轉換，你就會發現這些音軌中的一些頻率占了絕對的主導地位，而剩下的頻率則幾乎沒有記錄。
+
+![](https://i.imgur.com/KXVYERx.png)
+&gt; 無失真音樂的頻譜圖
+
+![](https://i.imgur.com/6sXqPTA.png)
+&gt; MP3 的頻譜圖，資料損失大部分在高頻部分
+
+MP3 (正確來說是 [MPEG-1 Audio Layer 3](https://en.wikipedia.org/wiki/MP3)) 恰好就利用了這點 —— 它將幾乎察覺不到的和高於人類聽覺上限的頻率部分去除，從而達到節省存儲空間的目的。把整首歌曲分成成千上萬個小部分，再從中截去不重要的頻率，留下重要的頻率，最後被耳朵聽到的音軌裡只剩下那些被留下來的最重要的頻率（音調）。這樣處理過後，檔案容量通常只要原本的十分之一，而我們也很難分辨壓縮後的音頻和原始音頻的區別。
+
+![](https://i.imgur.com/RjGEeSS.png)
+&gt; 取自 [充耳不聞：抗噪音耳機運用破壞性干涉，可以抵消外界的噪音](http://sa.ylib.com/MagArticle.aspx?Unit=columns&amp;id=645)
+
+主動降噪耳機同樣也使用傅立葉轉換：耳機裡內建的麥克風可記錄你周圍環境的噪音，並在所有頻譜裡測量噪音的頻率，之後這些噪音的頻率會被反轉，然後混合到你的聲音內容裡頭，這樣能抵消你身邊嬰兒的哭聲或公路上的噪音。
+
+降噪的原理是「反相」而非「反向」，利用波在週期內部的對稱性，製造出一個振幅相同，但相位相反的波動，實現相互的抵消。聲波本質是機械振動，而且人耳的聽力範圍也有限（20Hz~20KHz），在此頻率範圍中，無論透過耳機還是音響，產生降噪所需的波動，進而讓波動相消。
+
+透過類似上述的模式，用傅立葉轉換來建立數位圖片也比一個像素一個像素地建構圖片更有效率。
+
+![](https://i.imgur.com/pdbarEt.png)
+&gt; 取自 [Fourier Transform Profilometry in LabVIEW](https://www.intechopen.com/books/digital-systems/fourier-transform-profilometry-in-labview)
+
+無失真壓縮的圖片中每個像素的顏色都各自規範，但在 JPEG 中，整個圖片被分割成很多很小的小塊，每一個小塊都經過了 2D 傅立葉轉換。這樣能得到圖像中每一個小塊中顏色和亮度的變化的空間頻率等描述資訊，就像 MP3 的儲存方式一樣，JPEG 圖片會將高頻部分留下來，也就是一張圖片中對比強烈色彩鮮明的那些細節。我們中的大部分人眼睛都不能分辨出色彩中很細微的變化，所以即使丟棄一部分也是很難察覺的。顯然，將圖片檔案壓縮得越來越小的過程，就是將某些越來越低的頻率丟棄的過程。因為臨近的兩個子塊間顏色的變化會很明顯，所以圖片看起來感覺會有斑駁感。
+
+扣除視力和聽力受過良好訓練的人，使用像 MP3 和 JPEG 一類壓縮檔案的普羅大眾，往往難以察覺壓縮帶來的聽覺或視覺衝擊，它們看起來、聽起來還是那麼好，佔用的空間卻要小很多。換句話說，它們使數位圖片和音樂真正變為了現實，我們才能很便捷地分享音樂和圖片。
+
+![](https://i.imgur.com/YrZTAd2.png)
+&gt; 取自 [Square Wave Calculations](http://recordingology.com/in-the-studio/distortion/square-wave-calculations/)
+
+稍早我們談及用無限多個弦波去「組合」或「逼近」出一個矩形波，我們可改從矩形波的變化來思考：一個矩形波的上升緣 (如上圖時間軸 10ms 附近)、下降緣 (如上圖時間軸 5ms 附近)，變化極快，斜率趨近無限大，這是由眾多的高頻率成分所支撐。因此，我們又可以說，矩形波 (或任何在時間上變化很快)的訊號，必定帶有高頻率的成分。
+　
+知曉這概念後，我們來看以下兩種應用案例：
+1. 數位電路往往需要精準的觸發，矩形波要越乾淨漂亮越好 (例如時鐘脈波)，因此數位訊號在傳輸時，我們要確保它的「完整性」。首先避開被線路中元件或其他寄生效應引發的低通效應，再者就是不要讓反射波 (從負載反彈) 的波和前進波疊加產生突刺或凹陷 (spike 或 notch)，因突刺/凹陷也能造成數位電路被不正確觸發。總體來講，這正是「訊號完整性」([Signal Integrity](https://en.wikipedia.org/wiki/Signal_integrity), SI) 所探討的問題，我們需要維持矩形波原本的頻率成分，不要讓他們受到影響，使得它在時域上的樣貌變形(失真)。
+    ![](https://i.imgur.com/byqm564.png)
+    &gt; 時鐘脈波
+    
+    ![](https://i.imgur.com/nTmYGWd.png)
+    &gt; 受到低通效應影響的訊號
+
+2. 由於時域陡峭的變化，在頻域反映的就是極大的頻寬。這在無線通訊的情況是不被允許，通道頻寬往往受到法規限制。
+    ![](https://i.imgur.com/51qQwJG.png)
+    因此我們在數據層級看到非 `1` 即 `0`、非高即低的電壓波形，通常只能在「有線」的條件下允許傳送 (即頻譜被限制在封閉的介質中，不會影響到其他訊號)，而在無線的傳輸環境裡，這些非 `0` 即 `1` 的電壓波形，反而需要刻意先被低通濾波處理掉：先將高頻成分去除、把頻寬限制住，才能進一步傳送。
+    將類比訊號視作時間函數，頻寬就是在頻域內訊號的傅立葉轉換功率在一個特定門限之上、與最大值差在某個的範圍之內的頻率範圍。訊號頻寬是訊號隨著時間波動速度的一個度量，於是，頻寬越大，訊號的變化越快。函數的 3dB 頻寬在上圖表示是 $f_{2}-f_{1}$，但在其它的頻寬定義會得到另外不同的結果。
+    在通訊系統裡，這正是探討符碼 (symbol，或稱「符號」) 和它的波形 (waveform) 的課題。如果我們想傳送 `10` 這兩個 bits，`10` 在數位通訊的數據層級稱為一個符碼，但實際傳送時被轉換為電壓波型，經濾波之後會發生變形，因此會得到一個波形來代表這個符碼。
+
+繼續探討相位譜。
+  
+經由時域到頻域的變換，我們得到一個從側面看的頻譜，但這個頻譜沒有包含時域中全部的資訊。因為頻譜只代表每一個對應的弦波的振幅是多少，而沒有提到相位。基礎的弦波 $A.sin (wt+\theta)$ 中，振幅、頻率，和相位缺一不可，不同相位決定波的位置，所以對於頻域分析，僅僅有頻譜（振幅譜）不夠，我們還需要一個相位譜。那麼這個相位譜在哪呢？我們看下圖，為了簡化，我們用 7 個波疊加的圖。
+![](https://i.imgur.com/a0Eidnb.jpg)
+
+考慮到弦波是週期的，我們需要設定一個用來標記弦波位置的東西。在圖中就是那些小紅點。小紅點是距離頻率軸最近的波峰，而這個波峰所處的位置離頻率軸有多遠呢？為了看的更清楚，我們將紅色的點投影到下平面，投影點我們用粉色點來表示。當然，這些粉色的點只標注了波峰距離頻率軸的距離，並不是相位。
+![](https://i.imgur.com/x1EWQbr.jpg)
+
+這裡需要釐清一個概念：時間差並不是相位差。如果將全部週期看作 $2\pi$ 或者 360 度的話，相位差則是時間差在一個週期中所占的比例。我們將時間差除週期再乘 $2\pi$，就得到相位差。
+　　
+在完整的立體圖中，我們將投影得到的時間差依次除以所在頻率的周期，就得到了最下面的相位譜。所以，頻譜是從側面看，相位譜是從下面看。
+
+注意到，相位譜中的相位除了 0，就是 $\pi$。因為 $cos(t+\pi)=-cos(t)$，所以實際上相位為 $\pi$ 的波只是上下翻轉了而已。對於週期矩形波的傅立葉級數，這樣相位譜已是很單純了。另外值得注意到，由於 $cos(t+2\pi)=cos(t)$，所以相位差是週期的，$\pi$ 和 $3\pi$, $5\pi$, $7\pi$ 都是相同的相位。人為定義相位譜的值域為 $(-\pi, \pi]$，所以圖中的相位差均為 $\pi$。
+　　
+最後來一張大集合：
+![](https://i.imgur.com/OVsVVN3.jpg)
+
+
+## 四、傅立葉轉換（Fourier Transformation）
+
+傅立葉級數的本質是將一個週期的信號分解成無限多分開的（離散的）弦波，但是宇宙似乎並不是週期的。世上總存有一期一會、永不再來的事物，且時間始終不曾停息地將那些刻骨銘心的往昔，連續地標記在時間點上。但這些事情往往又成為了我們格外寶貴的回憶，在我們大腦裡隔一段時間就會週期性的蹦出來一下，可惜這些回憶都是零散的片段，往往只有最幸福的回憶，而平淡的回憶則逐漸被我們忘卻。因為，往昔是個連續的非週期信號，而回憶是個週期離散信號。
+  
+是否有一種數學工具將連續非週期信號變換為週期離散信號呢？抱歉，沒有。
+  
+比如傅立葉級數，在時域是一個週期且連續的函數，而在頻域是一個非週期離散的函數。接下去要探討的傅立葉轉換，則是將一個時域非週期的連續信號，轉換為一個在頻域非週期的連續信號。概念如下圖：
+![](https://i.imgur.com/h27hNJJ.jpg)
+
+或者我們也可以換一個角度理解：傅立葉轉換實際上是對一個週期無限大的函數進行傅立葉轉換。
+  
+因此，最初舉例的鋼琴譜其實並非一個連續的頻譜，而是很多在時間上離散的頻率。因此在傅立葉轉換在頻域上就從離散譜變成了連續譜。那麼連續譜是什麼樣子呢？
+  
+為了便於對照，我們這次從另一個角度來看頻譜，還是傅立葉級數中用到最多的那幅圖，我們從頻率較高的方向看。
+![](https://i.imgur.com/rQiX56b.jpg)
+
+以上是離散譜，那麼連續譜是什麼樣子呢？試著想像，倘若這些離散的弦波離得越來越近，逐漸變得連續，直到變得像波濤起伏的海浪：
+![](https://i.imgur.com/4MOlJQl.jpg)
+
+為了能讓這些波浪更清晰識別，本文沒有選用正確的計算參數，而是選擇了一些讓圖片更美觀的參數。比較這兩幅圖，大家應可理解如何從離散譜變成連續譜吧？原來離散譜的疊加，變成了連續譜的累積。所以在計算上也從求和符號變成了積分符號。
+  
+探討傅立葉轉換之前，我們需要岔開來探討一個數學工具 —— 歐拉公式 ([Euler&#39;s formula](https://en.wikipedia.org/wiki/Euler%27s_formula))。
+
+:::success
+Leonhard Euler，台灣舊譯「尤拉」，Euler 的讀音為 oi-ler。
+搭配觀看影片 [理解 $e^{i\pi}$](https://www.youtube.com/watch?v=F_0yfvm0UoU)，記得開 YouTube 字幕
+:::
+
+虛數 $i$ 這個概念在中學時期就接觸，一開始我們只知道它是 `-1` 的平方根，但 $i$ 真正的意義是什麼呢?
+![](https://i.imgur.com/xrUAaSA.jpg)
+
+這裡有一條數軸，在數軸上有一個紅色的線段，它的長度是 `1`。當它乘以 `3` 時，它的長度發生變化，變成藍色的線段，而當它乘以 `-1` 時，就變成綠色的線段，或者說線段在數軸上圍繞原點旋轉 180 度。
+
+我們知道乘 `-1` 其實是乘兩次 $i$ 使線段旋轉 180 度，那麼乘一次 $i$ 是什麼呢？很簡單，旋轉 90 度。
+![](https://i.imgur.com/rArsvx9.jpg)
+
+同時，我們得到一個垂直的虛數軸。實數軸與虛數軸共同搆成一個複數的平面，也稱複平面。於是我們可發現，乘上虛數 $i$ 的作用就是在複平面之上進行「旋轉」。
+
+:::success
+關於虛數運算，可參考系列短片 [Imaginary Numbers Are Real](https://youtu.be/T647CGsuOVU?list=PLiaHhY2iBX9g6KIvZ_703G3KJXapKkNaF)
+:::
+
+拿出一個塗色的平面網格（從左上開始逆時針依次塗成紅黃藍綠色），把每個網點的像算出來，按順序連起來，就可以來研究複數的運算。
+
+- [ ] 複數的加法
+![](https://i.imgur.com/9e9ahoO.png)
+從圖中可知，加法就是平面的平移，平移量恰好是那個複數對應的平面向量。
+
+- [ ] 複數的乘法
+據上面的運算法則很容易得到函數 $w=iz$ 的二維對應關係是 $[x,y] \rightarrow [-y, x]$，畫在圖上就是：
+![](https://i.imgur.com/XCGbXXe.png)
+
+仔細看可以發現，各點乘以i的效果是平面逆時針旋轉了 90 度，也就是$\frac{\pi}{2}$ 弧度。
+![](https://i.imgur.com/bdS5kbV.png)
+
+各點乘以 $e^{i\theta}$ 的後果是平面逆時針旋轉 $\theta$ 弧度，這裡是 30 度。
+![](https://i.imgur.com/4RnI0pp.png)
+
+乘以一個複數，就是把整個平面按它對應的角度旋轉 $\theta$ 弧度，再均勻放大 $\gamma$ 倍。因此，複數的加法就是自變量對應的平面整體平移，複數的乘法就是平面整體旋轉和伸縮，旋轉量和放大縮小量恰好是這個複數對應向量的夾角和長度。
+
+現在，有請歐拉公式隆重登場 ——
+$$
+\begin{gather*}
+e^{ix} = \cos x + i\sin x
+\end{gather*}
+$$
+
+當 x 等於 $\pi$ 時，得到以下特例：
+$$
+\begin{gather*}
+e^{i\pi} + 1 = 0
+\end{gather*}
+$$
+
+這個公式裡既有自然對數 $e$，自然數 `1` 和 `0`，虛數 $i$ 還有圓周率 $\pi$，它是這麼簡潔，這麼美麗啊！
+
+這個公式關鍵的作用，是將弦波統一成了簡單的指數形式。我們來看看圖像上的涵義：
+![](https://i.imgur.com/bMBjHXO.jpg)
+
+歐拉公式所描繪的，是一個隨著時間變化，在複平面上做圓周運動的點，隨著時間的改變，在時間軸上就成了一條螺旋線。如果只看它的實數部分，也就是螺旋線在左側的投影，就是一個最基礎的餘弦函數。而右側的投影則是一個正弦函數。
+
+借助歐拉公式，我們可知：弦波的疊加，也可以理解為螺旋線的疊加在實數空間的投影。而螺旋線的疊加若用一個形象的案例來理解，會是什麼呢？
+
+中學時我們就學過，自然光是由不同顏色的光疊加而成，而最著名的實驗就是牛頓的三稜鏡實驗：
+![](https://i.imgur.com/pfmJRxO.jpg)
+
+其實我們在很早就接觸到光的頻譜，只尚未理解頻譜更重要的意義。
+
+但不同的是，傅立葉轉換出來的頻譜不僅是可見光這樣頻率範圍有限的疊加，而是頻率從 0 到無窮所有頻率的組合。
+
+這裡，我們可以用兩種方法來理解弦波：
+  
+第一種前面已經講過了，就是螺旋線在實軸的投影。另一種需要借助歐拉公式的另一種形式去理解：
+$$
+\begin{gather*}
+e^{it} = \cos (t) + i.\sin (t) \\
+e^{-it} = \cos (t) - i.\sin (t)
+\end{gather*}
+$$
+
+將以上兩式相加再除 2，得到：
+$$
+\begin{gather*}
+\cos (t) = \dfrac{e^{it} + e^{-it}}{2}
+\end{gather*}
+$$
+
+該如何理解這個式子呢？
+  
+我們剛才講過，$e^{it}$ 可以理解為一條逆時針旋轉的螺旋線，那麼 $e^{-it}$ 則可以理解為一條順時針旋轉的螺旋線。而 $\cos (t)$ 則是這兩條旋轉方向不同的螺旋線疊加的一半，因為這兩條螺旋線的虛數部分相互抵消掉。
+
+![](https://i.imgur.com/snqp21E.png)
+舉例來說，就是極化方向不同的兩束光波，磁場抵消，電場加倍。
+
+這裡，逆時針旋轉的我們稱為正頻率，而順時針旋轉的我們稱為負頻率 (注意，不要誤寫為「複頻率」)。
+  
+理解連續的傅立葉轉換頻譜後，來看連續的螺旋線的模樣：
+![](https://i.imgur.com/DOSRT5H.jpg)
+
+是不是很漂亮？你猜猜，這個圖形在時域是什麼樣子？
+![](https://i.imgur.com/oHjSTkY.jpg)
+  
+附帶一提，那個像大海螺一樣的圖，為了方便觀看，我僅僅展示了其中正頻率的部分，略去其中負頻率的部分。
+
+若你認真看，海螺圖上的每一條螺旋線都可清楚看到，每一條螺旋線都有着不同的振幅（旋轉半徑），頻率（旋轉周期）以及相位。而將所有螺旋線連成平面，就是這幅海螺圖。至此，相信大家對傅立葉轉換以及傅立葉級數都有一定程度的認知，最後用下圖總結：
+![](https://i.imgur.com/LtCtgg0.jpg)
+
+## 延伸閱讀
+1. [The Scientist and Engineer&#39;s Guide to Digital Signal Processing](http://www.dspguide.com/pdfbook.htm)
+2. [隱藏的傅立葉分析](https://hackmd.io/@sysprog/S1jR0mHfN)
+3. [傅立葉級數](https://web.math.sinica.edu.tw/math_media/d221/22122.pdf)
+4. [傅立葉變換](https://web.math.sinica.edu.tw/math_media/d242/24203.pdf)
+
+###### tags: `sysprog`</div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-left dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="目錄">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="display:none;"></div>
+    
+
+    <div class="clearfix"></div>
+    <footer class="hidden-print">
+        <div class="container-thiner">
+            <div class="footer">
+                <div class="footer__published-by">
+                    發表於 <strong><a href="https://hackmd.io/" target="_blank"><i class="fa fa-file-text"></i> HackMD</a></strong>
+                </div>
+                <div class="footer__views">
+                    <i class="fa fa-eye"></i> <span class="ui-viewcount">34952</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- signin modal -->
+<div class="modal fade signin-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: 10px; right: 20px; position: absolute;"><span aria-hidden="true">&times;</span></button>
+            
+
+
+
+
+
+
+    
+
+
+
+
+
+
+<h3>登入</h3>
+
+<form data-toggle="validator" role="form" class="form-horizontal" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="dn"><input type="hidden" name="_csrf" value="ZkwLMrIF-5FA5kDV5xHvru6CGPLDxUnvpN5U"></div>
+    <div class="dn"><input type="hidden" name="create_team" value="false"></div>
+    <div class="dn"><input type="hidden" name="create_paid_team" value="false"></div>
+    <div class="form-group  ">
+        <label for="email" class="control-label">Email</label>
+        <label for="inputEmail" class="control-label pull-right errors">
+            
+        </label>
+        <span class="help-block control-label with-errors pull-right" style="display: inline;"></span>
+        <div class="input-block">
+            
+                <input type="email" class="form-control" name="email" placeholder="您的 Email" required autocomplete="email">
+            
+            <span class="error-sign"></span>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="password" class="control-label">密碼</label>
+        <label for="inputPassword" class="control-label pull-right errors">
+            
+        </label>
+        <span class="help-block control-label with-errors pull-right" style="display: inline;"></span>
+        <div class="input-block">
+            <input type="password" class="form-control" name="password" placeholder="您的密碼" required autocomplete="current-password">
+            <span class="error-sign"></span>
+            
+                <span class="control-label pull-right" style="font-size: 13px; margin-top: 5px;"><a href="https://hackmd.io/settings/forgotPassword" style="text-decoration: underline;">忘記密碼</a></span>
+            
+        </div>
+    </div>
+
+    <div style="text-align: center; padding-top: 15px; margin-bottom: 0px;">
+        
+            <input type="submit" class="btn btn-success btn-large" formaction="https://hackmd.io/login" value="登入">
+        
+
+        
+    </div>
+</form>
+
+
+
+
+
+
+
+
+    
+        <p class="seperator">或是</p>
+    
+
+    
+        <p>繼續登入，代表您同意<a href="https://hackmd.io/s/terms" target="_blank">服務條款</a>。</p>
+    
+
+    <div class="social-buttons-container">
+    
+    <a href="https://hackmd.io/auth/facebook" class="btn btn-lg btn-block btn-social btn-facebook">
+        <i class="fa fa-facebook"></i> 透過 Facebook 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/twitter" class="btn btn-lg btn-block btn-social btn-twitter">
+        <i class="fa fa-twitter"></i> 透過 Twitter 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/github" class="btn btn-lg btn-block btn-social btn-github">
+        <i class="fa fa-github"></i> 透過 GitHub 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/dropbox" class="btn btn-lg btn-block btn-social btn-dropbox">
+        <i class="fa fa-dropbox"></i> 透過 Dropbox 登入
+    </a>
+    
+    
+    <a href="https://hackmd.io/auth/google" class="btn btn-lg btn-block btn-social btn-google">
+        <i class="icon icon-google"></i> 透過 Google 登入
+    </a>
+    
+    
+</div>
+
+
+
+
+
+    <div >
+        <p>第一次使用 HackMD？ <a href="https://hackmd.io/join">註冊</a></p>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60728495-1"></script>
+<script nonce="ede134d3-6fb0-49dc-85b1-b99471fc46df">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    let userid = (document.cookie.match('(^|; )userid=([^;]*)')||0)[2];
+    gtag('config', 'UA-60728495-1', {'user_id': userid});
+</script>
+<script src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js" crossorigin="anonymous"></script>
+<script nonce="ede134d3-6fb0-49dc-85b1-b99471fc46df">Sentry.init({ dsn: 'https://73410f1915d84abc8b2dd1f1aabd1c82@sentry.hackmd.dev/4', environment: 'production', integrations: function (intrus) { return intrus.filter(function (itr) { return itr.name !== 'TryCatch' }) } });</script>
+
+
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLW9Z3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <script src="https://hackmd.io/api/i18n.js"></script>
+    
+         <script src="https://assets.hackmd.io/build/font-vendor.3c28db3001b8bd6f1d3f.js" defer="defer"></script><script src="https://assets.hackmd.io/build/common-vendor.8e4f4d6aba4d3616fff5.js" defer="defer"></script><script src="https://assets.hackmd.io/build/pretty-vendor.97ba4f331e5cf852bb65.js" defer="defer"></script><script src="https://assets.hackmd.io/build/pretty-common.a782281480a8fdca73b3.js" defer="defer"></script><script src="https://assets.hackmd.io/build/pretty.9b2ccb1fd57f7b04f26d.js" defer="defer"></script>
+    
+    
+
+</body>
+</html>

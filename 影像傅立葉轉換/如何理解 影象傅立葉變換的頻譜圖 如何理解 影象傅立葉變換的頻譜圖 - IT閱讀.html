@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://www.itread01.com/content/1547200686.html -->
+<html class="js" lang="zh-TW" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <title>如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀</title>
+<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+<link href="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/atom-one-dark.min.css" rel="stylesheet">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="referrer" content="never">
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="hueman-main-style-css" href="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/main.info.css" type="text/css" media="all">
+<link href="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/prettify.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/prettify(1).css">
+<style id="hueman-main-style-inline-css" type="text/css">
+body { font-family:'Source Sans Pro', Arial, sans-serif;font-size:1.00rem }@media only screen and (min-width: 720px) {
+        .nav > li { font-size:1.00rem; }
+      }::selection { background-color: #fca61b; }
+::-moz-selection { background-color: #fca61b; }a,.themeform label .required,#flexslider-featured .flex-direction-nav .flex-next:hover,#flexslider-featured .flex-direction-nav .flex-prev:hover,.post-hover:hover .post-title a,.post-title a:hover,.sidebar.s1 .post-nav li a:hover i,.content .post-nav li a:hover i,.post-related a:hover,.sidebar.s1 .widget_rss ul li a,#footer .widget_rss ul li a,.sidebar.s1 .widget_calendar a,#footer .widget_calendar a,.sidebar.s1 .alx-tab .tab-item-category a,.sidebar.s1 .alx-posts .post-item-category a,.sidebar.s1 .alx-tab li:hover .tab-item-title a,.sidebar.s1 .alx-tab li:hover .tab-item-comment a,.sidebar.s1 .alx-posts li:hover .post-item-title a,#footer .alx-tab .tab-item-category a,#footer .alx-posts .post-item-category a,#footer .alx-tab li:hover .tab-item-title a,#footer .alx-tab li:hover .tab-item-comment a,#footer .alx-posts li:hover .post-item-title a,.comment-tabs li.active a,.comment-awaiting-moderation,.child-menu a:hover,.child-menu .current_page_item > a,.wp-pagenavi a{ color: #fca61b; }.themeform input[type="submit"],.themeform button[type="submit"],.sidebar.s1 .sidebar-top,.sidebar.s1 .sidebar-toggle,#flexslider-featured .flex-control-nav li a.flex-active,.post-tags a:hover,.sidebar.s1 .widget_calendar caption,#footer .widget_calendar caption,.author-bio .bio-avatar:after,.commentlist li.bypostauthor > .comment-body:after,.commentlist li.comment-author-admin > .comment-body:after{ background-color: #fca61b; }.post-format .format-container { border-color: #fca61b; }.sidebar.s1 .alx-tabs-nav li.active a,#footer .alx-tabs-nav li.active a,.comment-tabs li.active a,.wp-pagenavi a:hover,.wp-pagenavi a:active,.wp-pagenavi span.current{ border-bottom-color: #fca61b!important; }.sidebar.s2 .post-nav li a:hover i,
+.sidebar.s2 .widget_rss ul li a,
+.sidebar.s2 .widget_calendar a,
+.sidebar.s2 .alx-tab .tab-item-category a,
+.sidebar.s2 .alx-posts .post-item-category a,
+.sidebar.s2 .alx-tab li:hover .tab-item-title a,
+.sidebar.s2 .alx-tab li:hover .tab-item-comment a,
+.sidebar.s2 .alx-posts li:hover .post-item-title a { color: #3bcfe2; }
+.sidebar.s2 .sidebar-top,.sidebar.s2 .sidebar-toggle,.post-comments,.jp-play-bar,.jp-volume-bar-value,.sidebar.s2 .widget_calendar caption{ background-color: #3bcfe2; }.sidebar.s2 .alx-tabs-nav li.active a { border-bottom-color: #3bcfe2; }
+.post-comments span:before { border-right-color: #3bcfe2; }
+      .search-expand,
+              #nav-topbar.nav-container { background-color: #303030}@media only screen and (min-width: 720px) {
+                #nav-topbar .nav ul { background-color: #303030; }
+              }.is-scrolled #header .nav-container.desktop-sticky,
+              .is-scrolled #header .search-expand { background-color: #303030; background-color: rgba(48,48,48,0.90) }.is-scrolled .topbar-transparent #nav-topbar.desktop-sticky .nav ul { background-color: #303030; background-color: rgba(48,48,48,0.95) }#header { background-color: #363944; }
+@media only screen and (min-width: 720px) {
+  #nav-header .nav ul { background-color: #363944; }
+}
+        .is-scrolled #header #nav-mobile { background-color: #454e5c; background-color: rgba(69,78,92,0.90) }body { background-color: #eaeaea; }
+		.entry-inner h1{ font-size:20px; font-weight:bold;}
+		.entry-inner h2,h3,h4{ font-size:18px; font-weight:bold;}
+</style>
+ 
+
+<link rel="stylesheet" id="hueman-font-awesome-css" href="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/font-awesome.min.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","is_debug_mode":"false","download_extensions":"","inbound_paths":"","home_url":"https:\/\/www.itread01.com","track_download_as":"event","internal_label":"int","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/frontend.min.js.下載"></script>
+<script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/jquery.js.下載"></script>
+<script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/jsjquery-migrate.min.js.下載"></script>
+<script src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/highlight.js.下載"></script>
+<link rel="stylesheet" type="text/css" href="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/default.css">
+<meta name="generator" content="WordPress 4.8.2">
+<!--[if lt IE 9]>
+<script src="/img/css/js/html5shiv-printshiv.min.js"></script>
+<script src="/img/css/js/selectivizr.js"></script>
+<![endif]-->
+<style>.ios7.web-app-mode.has-fixed header{ background-color: rgba(45,53,63,.88);}</style></head>
+<body data-rsssl="1" class="post-template-default single single-post postid-43193 single-format-standard wp-custom-logo col-2cl full-width topbar-enabled header-desktop-sticky header-mobile-sticky chrome hu-smoothscroll is-scrolled">
+    <div id="wrapper">
+        <header id="header" class="specific-mobile-menu-on one-mobile-menu mobile_menu header-ads-desktop header-ads-mobile topbar-transparent no-header-img fixed-header-on" style="height: 175px; padding-top: 50px;">
+        <nav class="nav-container group mobile-menu mobile-sticky " id="nav-mobile" data-menu-id="header-1">
+  <div class="mobile-title-logo-in-header"><p class="site-title"><a class="custom-logo-link" href="https://www.itread01.com/" rel="home" title="首頁"><img src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/logo.png"></a></p>
+                </div>
+        <div class="ham__navbar-toggler-two collapsed" title="Menu" aria-expanded="false">
+          <div class="ham__navbar-span-wrapper">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </div>
+        </div>
+            
+      <div class="nav-text"></div>
+      <div class="nav-wrap container">
+                  <ul class="nav container-inner group mobile-search">
+                            <li>
+                  <form class="searchform themeform" onsubmit="return searchKw(this)">
+	<div>
+		<input type="text" name="kw" class="search" onblur="if(this.value==&#39;&#39;)this.value=&#39;輸入關鍵字後搜尋&#39;;" onfocus="if(this.value==&#39;輸入關鍵字後搜尋&#39;)this.value=&#39;&#39;;" value="輸入關鍵字後搜尋">
+	</div>
+</form>    
+<script>function searchKw(c){var b=c.getElementsByTagName("input")[0],a=b.value.replace(/^\s+|\s+$/g,"");a=a.replace(/['"]/g,"");location.href="https://www.itread01.com/search/"+encodeURIComponent(a)+"";return false};</script>            </li>
+                      </ul>
+                <ul id="menu-top" class="nav container-inner group">
+                 <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/">首頁</a></li>
+				<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/%E7%A7%91%E6%8A%80/">科技</a></li>
+						  <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/info/">程式語言</a></li>
+ 
+</ul>      </div>
+</nav><!--/#nav-topbar-->  
+        <nav class="nav-container group desktop-menu desktop-sticky sticky-visible" id="nav-topbar" data-menu-id="header-2" style="max-width: 1394px; transform: translate(0px, 0px);">
+    <div class="nav-text"></div>
+  <div class="topbar-toggle-down">
+    <i class="fas fa-angle-double-down" aria-hidden="true" data-toggle="down" title="展開功能表清單"></i>
+    <i class="fas fa-angle-double-up" aria-hidden="true" data-toggle="up" title="折疊功能表清單"></i>
+  </div>
+  <div class="nav-wrap container">
+    <ul id="menu-footer" class="nav container-inner group"> 
+    <li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/" rel="nofollow">首頁</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/study/mysql-tutorial.html">MySQL教學</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E7%B6%B2%E7%AB%99%E6%8A%80%E5%B7%A7/1/">網站技巧</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E7%B6%B2%E8%B7%AF%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/1/">網路程式設計</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E8%BB%9F%E9%AB%94%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/1/">軟體程式設計</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E8%B3%87%E6%96%99%E5%BA%AB/1/">資料庫</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/1/">作業系統</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E6%8C%87%E4%BB%A4%E7%A2%BC%E5%B0%88%E6%AC%84/1/">其它</a></li>
+ 
+</ul>  </div>
+      <div id="topbar-header-search" class="container">
+      <div class="container-inner">
+        <div class="toggle-search"><i class="fas fa-search"></i></div>
+        <div class="search-expand">
+          <div class="search-expand-inner"><form class="searchform themeform" onsubmit="return searchKw(this)">
+	<div>
+		<input type="text" class="search" name="kw" onblur="if(this.value==&#39;&#39;)this.value=&#39;輸入關鍵字後搜尋&#39;;" onfocus="if(this.value==&#39;輸入關鍵字後搜尋&#39;)this.value=&#39;&#39;;" value="輸入關鍵字後搜尋">
+	</div>
+</form></div>
+        </div>
+      </div><!--/.container-inner-->
+    </div><!--/.container-->
+  
+</nav><!--/#nav-topbar-->  
+  <div class="container group">
+        <div class="container-inner">
+
+                    <div class="group pad central-header-zone">
+                  <div class="logo-tagline-group">
+                                        <p class="site-title"><a class="custom-logo-link" href="https://www.itread01.com/" rel="home"><img src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/logo.png"></a></p>
+                                                        </div>
+
+                                        <div id="header-widgets">
+                          <div id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /109765683/728_Banner -->
+ </div></div>                      </div><!--/#header-ads-->
+                                </div>
+                <nav class="nav-container group desktop-menu " id="nav-header" data-menu-id="header-3">
+    <div class="nav-text"><!-- put your mobile menu text here --></div>
+  <div class="nav-wrap container">
+        <ul id="menu-top-1" class="nav container-inner group">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/">首頁</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/%E7%A7%91%E6%8A%80/">科技</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/info/">程式語言</a></li>
+</ul>  </div>
+</nav><!--/#nav-header-->      
+    </div><!--/.container-inner-->
+      </div><!--/.container-->
+</header><!--/#header-->        
+        <div class="container" id="page">
+            <div class="container-inner">
+
+                                <div class="main" style="overflow: hidden;">
+                    <div class="main-inner group">
+                        
+              <section class="content">
+              <div class="page-title pad group">
+          	    		<ul class="meta-single group">
+    			<li class="category"><a href="https://www.itread01.com/infolist/%E5%85%B6%E4%BB%96/1/">其他</a></li>
+    			    		</ul>
+
+    	
+    </div><!--/.page-title-->
+          <div class="pad group">
+              <article class="post-43193 post type-post status-publish format-standard has-post-thumbnail hentry category-news tag-stripe tag-32305 tag-32306 tag-4550 tag-5237 tag-31545 tag-6260">
+    <div class="post-inner group">
+
+      <h1 class="post-title entry-title">如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖</h1>
+<p class="post-byline"><span class="vcard author">
+     <span class="fn"><a href="https://www.itread01.com/infolist/%E5%85%B6%E4%BB%96/1/">其他</a></span>
+   </span> ·
+                            發表 <time class="published" datetime="2019-01-11">2019-01-11</time>
+             
+               </p>
+               <ins id="scupio-sc-4995-17811-847678" class="scupioadslot" style="display: block; width: 100%; height: 100px; position: relative; top: -99999px;" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17811" data-sca-slot-type="PRA" data-sca-status="loading" undefined="0"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="scupio-sc-4995-17811-847678_frame" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/ad.html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 100%; height: 100px; display: none !important;"></iframe><span id="viewability_detector_17811" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span></ins>
+<script async="" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/ad.js.下載"></script>
+<script>
+(function(s, c, u, p, i, o, a, d) {
+    'use strict';
+    var z=function(t,e,r){var a,n=document.createElement('ins'),s=n.style;for(a in n.className='scupioadslot',r&&(n.id=r),t)t.hasOwnProperty(a)&&(s[a]=t[a]);for(a in e)e.hasOwnProperty(a)&&n.setAttribute('data-sca-'+a,e[a]);return n};
+    (d = s.Scupioads = s.Scupioads || []).push({
+        id: u,
+        callback: function() {
+            p = c.getElementById(u);
+            i = p.style;
+            o = 'inline-block';
+            p.appendChild(z({
+                display: o,
+                width: '100%',
+                height: '100px',
+                margin: 'auto'
+            }, {
+                'pub': 'lRIJBAgyQA==',
+                'web': '4995',
+                'category': '17',
+                'cid': '17812',
+                'slot-type': 'STA'
+            }));
+            i.width = '100%';
+            i.height = '100px';
+            i.display = o;
+        }
+    });
+    setTimeout(function(){if(!s.Scupioads.init)for(i=d.length-1;0<=i;i--)if(d[i].id===u){d[i].callback(),d[i].callback=function(){};break}},1e3);
+})(window, document, 'scupio-sc-4995-17811-847678');
+</script>
+      
+      <div class="clear"></div>
+ 
+      <div class="entry themeform share">
+        <div class="entry-inner">
+		<div id="content_views" class="markdown_views prism-atom-one-dark"> 
+ <!-- flowchart 箭頭圖示 勿刪 --> 
+  
+ <div class="blog-content-box"> 
+  <div class="article-header-box"> 
+   <div class="article-header"> 
+    <div class="article-title-box"> 
+     <span class="article-type type-1 float-left">原</span> 
+     <h1 class="title-article">如何理解 影象傅立葉變換的頻譜圖</h1> 
+    </div> 
+    <div class="article-info-box"> 
+     <div class="article-bar-top"> 
+      <span class="time">2018年09月18日 16:43:00</span> 
+      <a class="follow-nickName" href="https://me.csdn.net/qq_30263737" rel="nofollow" target="_blank">Ring__Rain</a><span class="hu-external"></span> 
+      <span class="read-count">閱讀數：965</span> 
+     </div> 
+     <div class="operating"> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <article class="baidu_pl"> 
+   <div id="article_content" class="article_content clearfix csdn-tracking-statistics"> 
+    <div class="htmledit_views" id="content_views"> 
+     <p>本文轉載於<a href="https://blog.csdn.net/daduzimama" rel="nofollow" target="_blank">松下J27</a><span class="hu-external"></span>，原文分為三章講解，在此合併轉載&nbsp;<br> 文一：<a href="https://blog.csdn.net/daduzimama/article/details/80109139" rel="nofollow" target="_blank">https://blog.csdn.net/daduzimama/article/details/80109139</a><span class="hu-external"></span>&nbsp;<br> 文二：<a href="https://blog.csdn.net/daduzimama/article/details/80394570" rel="nofollow" target="_blank">https://blog.csdn.net/daduzimama/article/details/80394570</a><span class="hu-external"></span>&nbsp;<br> 文三：<a href="https://blog.csdn.net/daduzimama/article/details/80394596" rel="nofollow" target="_blank">https://blog.csdn.net/daduzimama/article/details/80394596</a><span class="hu-external"></span></p> 
+    </div>
+   </div>
+  </article>
+ </div>
+ <blockquote> 
+  <p><strong><code>很多人都不瞭解影象（二維）頻譜中的每一點究竟代表了什麼，有什麼意義?</code></strong></p> 
+ </blockquote>
+ <p><strong><code>一句話：二維頻譜中的每一個點都是一個與之一一對應的二維正弦/餘弦波。</code></strong></p> 
+ <p>常言道，百聞不如一見，人腦對於影象的理解能力是非常發達的。換句話說，一副影象（不論是灰度的影象還是彩色影象）所提供的資訊是顯而易見，清晰有力的。然而，一副影象的傅立葉頻譜圖，卻常常讓人難以理解，捉摸不透，也正因為如此，相對於一維頻譜的頻域處理方式而言，二維頻域的處理方式顯得非常有限，例如，二維卷積的頻域計算，傅立葉中心切片定理Fourier Slice Theorem（醫學領域）。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427145221546" referrerpolicy="no-referrer"></p> 
+ <p>我這裡再次選用了著名的Cameraman的影象，這幅照片向我們表達的資訊是顯而易見的，一位優秀的攝影師，黑色的風衣，瀟灑的髮型，很有質感的皮手套，灰色的褲子，一臺照相機，一個三腳架，草坪，藍天，背景是MIT。而他的頻譜圖則並沒有像一維的頻譜圖那樣，有助於我們理解影象自身以外的或者是隱藏在影象背後的資訊。比如說，中間的那條白線是什麼，如果你沒看我之前寫的那篇文章你可能都不知道它究竟代表了什麼。這也就是我為什麼說，影象的傅立葉變換有些多此一舉，反而把一個簡單的問題弄得很複雜，弄巧成拙了。</p> 
+ <p>言歸正傳，說了這麼多，搞影象的哪有不和二維傅立葉變換打交道的呢。現在我就盡力說明一下影象二維傅立葉變換的一些屬性（這裡主講二維頻譜的特性，一維裡面的共有特性就不細講了）。</p> 
+ <h2 id="1週期性"><a></a><a target="_blank"></a>1、週期性</h2> 
+ <p>DFT的週期性：時時刻刻都要記住，對於DFT而言，他的空域和頻域始終都是沿著X和Y方向無限週期拓展的。&nbsp;<br><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180502161206769" referrerpolicy="no-referrer"></p> 
+ <p>如果只取其中的一個週期，則我們會得到如下的結果（即，頻譜未中心化）。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180502162221841" referrerpolicy="no-referrer"></p> 
+ <p>為了便於頻域的濾波和頻譜的分析，常常在變換之前進行頻譜的中心化。</p> 
+ <h3 id="頻譜的中心化"><a></a><a target="_blank"></a>頻譜的中心化</h3> 
+ <p>從數學上說是在變換之前用指數項乘以原始函式，又因為e^jπ = 1，所以往往我們在寫程式的時候實際上是把原始矩陣乘以（-1）^(x+y)達到頻譜居中的目的。如下圖所示：1&lt;—–&gt;3 對調，2&lt;—–&gt;4 對調，matlab中的fftshit命令就是這麼幹的。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427200316421" referrerpolicy="no-referrer"></p> 
+ <p>變換後對調頻譜的四個象限（swap quadrant）</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180521175012245" referrerpolicy="no-referrer"></p> 
+ <p>經過中心化後的頻譜</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/2018050216191397" referrerpolicy="no-referrer"></p> 
+ <p>截取了其中的一個週期，作為影象的頻譜</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427145221546" referrerpolicy="no-referrer"></p> 
+ <h2 id="2高低頻率的分佈"><a></a><a target="_blank"></a>2、高低頻率的分佈</h2> 
+ <p>除了週期性之外，還應該知道的就是哪裡是高頻哪裡是低頻。在經過頻譜居中後的頻譜中，中間最亮的點是最低頻率，屬於直流分量（DC分量）。越往邊外走，頻率越高。所以，頻譜圖中的四個角和X,Y軸的盡頭都是高頻。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427194854124" referrerpolicy="no-referrer"></p> 
+ <p>沒有經過頻譜居中處理的頻譜圖則正好相反，中間區域是高頻，而四個角則是DC低頻分量。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427195441212" referrerpolicy="no-referrer"></p> 
+ <p>這裡我再用一個正弦波的例子來展示頻譜圖的高低頻的分佈，見下圖。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428102332101" referrerpolicy="no-referrer"></p> 
+ <p>頻譜中心化以後，正弦波的頻點靠中心越近，頻率越低，離中心越遠，頻率越高。</p> 
+ <h2 id="3頻譜圖的能量分佈"><a></a><a target="_blank"></a>3、頻譜圖的能量分佈</h2> 
+ <p>這裡我順便提一下頻譜中的能級分佈，則如下圖所示。明顯，DC分量所佔能量最大最多，不論是二維還是一維都應該是這樣。頻率越高的部分，能量越少。如下圖所示，圖示畫的不好，勉強能夠理解就好。中間最小的那個圓圈內包含了大約85%的能量，中間那個圈包含了大約93%的能量，而最外面那個圈則包含了幾乎99%的能量。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180521182921198" referrerpolicy="no-referrer"></p> 
+ <h2 id="4縱橫交錯性"><a></a><a target="_blank"></a>4、縱橫“交錯”性</h2> 
+ <p>在二維傅立葉變換中，空間域中橫向的週期變化會反應在頻譜圖中的Y軸上，而空間域中縱向的週期變化會反應在頻譜圖中的X軸上。空間域中東南方向的週期變化會反應在頻譜圖中的東北方向，反之亦然。說明見下圖。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427205203922" referrerpolicy="no-referrer"></p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427205258901" referrerpolicy="no-referrer"></p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427211747172" referrerpolicy="no-referrer"></p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180427211645847" referrerpolicy="no-referrer"></p> 
+ <p>最後再附加一個例子。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428105328629" referrerpolicy="no-referrer"></p> 
+ <h2 id="5方向性direction"><a></a><a target="_blank"></a>5、方向性（direction）</h2> 
+ <p>在二維頻譜圖中的任意“一對亮點”（注意：頻譜的對稱性），都在相應的空間域有一個與之相對應的二維正弦波。亮點在二維頻譜中的位置決定了與之對應的正弦波的頻率和方向。</p> 
+ <p>在空域圖中的任意一條正弦線上，作該正弦線的法線。同時，把頻譜圖中的一對白色頻點和座標原點（DC中點）用一條直線連線起來。則，空域圖中的法線正好和頻譜圖中的連線是完全平行的，一致的。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428154759207" referrerpolicy="no-referrer"></p> 
+ <p>上圖是一個45度傾斜的正弦波影象。</p> 
+ <p>注意空間域中的任意一條法線和頻譜圖中頻點和頻譜圖原點（DC）連線都是平行的，同時，空間域中的任意一條正弦線和頻譜圖中的連線是剛好正交的/垂直的。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428155738433" referrerpolicy="no-referrer"></p> 
+ <p>上圖為相同方向，較低頻率正弦圖的頻譜。注意圖中我用白色箭頭所畫的空間域（左圖）的法線和頻譜圖中（右圖）一對頻點和DC的連線延長線，是平行的。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428160805577" referrerpolicy="no-referrer"></p> 
+ <p>上圖為相同方向，較高頻率正弦圖的頻譜。注意圖中我用白色箭頭所畫的空間域（左圖）的法線和頻譜圖中（右圖）一對頻點和DC的連線延長線，是平行的。</p> 
+ <p>下面我們來驗證一下其他角度的情況，這一法則是否適用。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428165717483" referrerpolicy="no-referrer"></p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428170537576" referrerpolicy="no-referrer"></p> 
+ <p>上面所有的例子中的頻譜圖都是頻譜中心化的，那麼針對沒有經過頻譜中心化的圖呢？</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/2018042817231584" referrerpolicy="no-referrer"></p> 
+ <p>這些實驗還說明了一個非常重要的問題，那就是：頻譜圖中的任意一對對稱的兩點，或者說是頻點，經過傅立葉反變換之後，就是空間域中的一個與之對應的正弦波（即，相應的頻率和方向）。如下圖所示。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180428174027353" referrerpolicy="no-referrer"></p> 
+ <h2 id="6平移和旋轉"><a></a><a target="_blank"></a>6、平移和旋轉</h2> 
+ <p>影象的平移並不會影響影象的頻譜，同時，影象的相位會隨著影象的旋轉而旋轉。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180502094948898" referrerpolicy="no-referrer"></p> 
+ <p>Part I 平移和旋轉對頻譜的影響&nbsp;<br> 下面我用矩形的頻譜圖來說明影象中矩形的平移並不會對頻譜有絲毫的影響。&nbsp;<br><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180502104348584" referrerpolicy="no-referrer"></p> 
+ <p>再比如</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180502155722189" referrerpolicy="no-referrer"></p> 
+ <p>再來看看頻譜隨著矩形的旋轉而旋轉相同的角度。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180502111643345" referrerpolicy="no-referrer"></p> 
+ <p>Part II 平移和旋轉對相位的影響&nbsp;<br> 先用一個簡單的例子來說明影象相位的作用（所用影象為cameraman），在影象的頻域分析和濾波中，相位是常常被忽略的。雖然相位分量的貢獻很不直觀，但是它恰恰很重要。相位是頻譜中各正弦分量關於原點的位移的度量。</p> 
+ <p>上面的小實驗充分說明了，看似無用的，且常常被忽略的相位，在DFT的頻域中起到了多麼重要的作用（注意區分實部和虛部（直角座標系）VS 頻譜和相位（極座標系）！）。</p> 
+ <p>接下來我們再來看看影象在空間域中的移位和旋轉對相位有什麼影響。下圖中，左邊一列是影象，中間一列是頻譜，右邊一列是相點陣圖。你必須意識到，通過肉眼，你很難從相點陣圖中得到什麼有用的資訊。</p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180904175210409" referrerpolicy="no-referrer"></p> 
+ <p><img alt="這裡寫圖片描述" class="has" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/20180510093541364" referrerpolicy="no-referrer"></p> 
+ <pre class="hljs xml"><code>				<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+					(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+						<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setArticleH</span>(<span class="hljs-params">btnReadmore,posi</span>)</span>{
+							<span class="hljs-keyword">var</span> winH = $(<span class="hljs-built_in">window</span>).height();
+							<span class="hljs-keyword">var</span> articleBox = $(<span class="hljs-string">"div.article_content"</span>);
+							<span class="hljs-keyword">var</span> artH = articleBox.height();
+							<span class="hljs-keyword">if</span>(artH &gt; winH*posi){
+								articleBox.css({
+									<span class="hljs-string">'height'</span>:winH*posi+<span class="hljs-string">'px'</span>,
+									<span class="hljs-string">'overflow'</span>:<span class="hljs-string">'hidden'</span>
+								})
+								btnReadmore.click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+									articleBox.removeAttr(<span class="hljs-string">"style"</span>);
+									$(<span class="hljs-keyword">this</span>).parent().remove();
+								})
+							}<span class="hljs-keyword">else</span>{
+								btnReadmore.parent().remove();
+							}
+						}
+						<span class="hljs-keyword">var</span> btnReadmore = $(<span class="hljs-string">"#btn-readmore"</span>);
+						<span class="hljs-keyword">if</span>(btnReadmore.length&gt;<span class="hljs-number">0</span>){
+							<span class="hljs-keyword">if</span>(currentUserName){
+								setArticleH(btnReadmore,<span class="hljs-number">3</span>);
+							}<span class="hljs-keyword">else</span>{
+								setArticleH(btnReadmore,<span class="hljs-number">1.2</span>);
+							}
+						}
+					})()
+				</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+</code></pre> 
+</div> 
+
+<div class="htmledit_views" id="content_views"> 
+ <p>本文轉載於<a href="https://blog.csdn.net/daduzimama" rel="nofollow" target="_blank">松下J27</a><span class="hu-external"></span>，原文分為三章講解，在此合併轉載&nbsp;<br> 文一：<a href="https://blog.csdn.net/daduzimama/article/details/80109139" rel="nofollow" target="_blank">https://blog.csdn.net/daduzimama/article/details/80109139</a><span class="hu-external"></span>&nbsp;<br> 文二：<a href="https://blog.csdn.net/daduzimama/article/details/80394570" rel="nofollow" target="_blank">https://blog.csdn.net/daduzimama/article/details/80394570</a><span class="hu-external"></span>&nbsp;<br> 文三：<a href="https://blog.csdn.net/daduzimama/article/details/80394596" rel="nofollow" target="_blank">https://blog.csdn.net/daduzimama/article/details/80394596</a><span class="hu-external"></span></p> 
+</div>
+	 <center><ins id="scupio-sc-4995-17522-26274" class="scupioadslot" style="display: inline-block; width: 300px; height: 250px; position: relative;" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17522" data-sca-slot-type="PRA" data-sca-status="loading" undefined="1"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="scupio-sc-4995-17522-26274_frame" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/ad(1).html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 300px; height: 250px; display: none;"></iframe><span id="viewability_detector_17522" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span></ins>
+<script async="" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/ad.js.下載"></script>
+<script>
+(function(s, c, u, p, i, o, a, d) {
+    'use strict';
+    var z=function(t,e,r){var a,n=document.createElement('ins'),s=n.style;for(a in n.className='scupioadslot',r&&(n.id=r),t)t.hasOwnProperty(a)&&(s[a]=t[a]);for(a in e)e.hasOwnProperty(a)&&n.setAttribute('data-sca-'+a,e[a]);return n};
+    (d = s.Scupioads = s.Scupioads || []).push({
+        id: u,
+        callback: function() {
+            p = c.getElementById(u);
+            i = p.style;
+            o = 'inline-block';
+            p.appendChild(z({
+                display: o,
+                width: '300px',
+                height: '250px',
+                margin: 'auto'
+            }, {
+                'pub': 'lRIJBAgyQA==',
+                'web': '4995',
+                'category': '17',
+                'cid': '17523',
+                'slot-type': 'STA'
+            }));
+            i.width = '300px';
+            i.height = '250px';
+            i.display = o;
+        }
+    });
+    setTimeout(function(){if(!s.Scupioads.init)for(i=d.length-1;0<=i;i--)if(d[i].id===u){d[i].callback(),d[i].callback=function(){};break}},1e3);
+})(window, document, 'scupio-sc-4995-17522-26274');
+</script></center>
+          <nav class="pagination group">
+                      </nav><!--/.pagination-->
+        </div>
+
+    
+        <div class="clear"></div>
+      </div><!--/.entry-->
+
+    </div><!--/.post-inner-->
+  </article><!--/.post-->
+
+<div class="clear"></div>
+
+<p class="post-tags"><span>標籤：</span> 頻譜 影象 中的 變換 傅裡 正弦 相位 頻率 </p>
+
+<center>
+</center>
+
+
+<h4 class="heading">
+	<i class="far fa-hand-point-right"></i>您可能也會喜歡…</h4>
+
+ <ul class="lrelated-posts group">
+		 	<li><a href="https://www.itread01.com/content/1548950785.html" target="_blank">如何理解 影象傅立葉變換的頻譜圖</a> </li>
+    	<li><a href="https://www.itread01.com/content/1547200686.html" target="_blank">如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546282982.html" target="_blank">影象處理：如何理解傅立葉變換在影象處理中的應用</a> </li>
+    	<li><a href="https://www.itread01.com/content/1550532266.html" target="_blank">如何理解離散傅立葉變換（一）實數形式傅立葉變換</a> </li>
+    	<li><a href="https://www.itread01.com/content/1549655106.html" target="_blank">影象處理中的數學原理詳解（Part8） ——傅立葉變換的來龍去脈</a> </li>
+    	<li><a href="https://www.itread01.com/content/1548072187.html" target="_blank">OpenCV17（影象二維頻譜的理解，傅立葉頻譜分析）</a> </li>
+    	<li><a href="https://www.itread01.com/content/1547494407.html" target="_blank">OpenCV下利用傅立葉變換和逆變換實現影象卷積演算法,並附自己對於卷積核/模板核算子的理解!</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546677733.html" target="_blank">如何用matlab計算影象的二維傅立葉變換</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546460673.html" target="_blank">理解影象的傅立葉變換（細心分析）</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546251884.html" target="_blank">影象處理中傅立葉變換以及頻率域影象增強詳解</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546115607.html" target="_blank">CNN是如何一層一層＇理解＇影象資訊的</a> </li>
+    	<li><a href="https://www.itread01.com/content/1545992528.html" target="_blank">影象學習中的梯度如何理解</a> </li>
+    	<li><a href="https://www.itread01.com/content/1545195724.html" target="_blank">計算機如何理解影象?</a> </li>
+    	<li><a href="https://www.itread01.com/content/1541476926.html" target="_blank">影象學習之如何理解方向梯度直方圖（Histogram Of Gradient）</a> </li>
+    	<li><a href="https://www.itread01.com/content/1569159603.html" target="_blank">如何利用deeplearning4j中datavec對影象進行處理</a> </li>
+     
+</ul><!--/.post-related-->
+
+
+
+        </div><!--/.pad-->
+        </section><!--/.content-->
+          
+
+	<div class="sidebar s1 collapsed sticky" data-position="right" data-layout="col-2cl" data-sb-id="s1" style="transform: translateZ(0px); top: 0px; position: fixed; left: 1034px;">
+
+		<a class="sidebar-toggle" title="延伸側邊欄位" style="transform: translate(0px, 50px);"><i class="fas icon-sidebar-toggle"></i></a>
+
+		<div class="sidebar-content" style="transform: translate(0px, 50px);">
+
+			  			<div class="sidebar-top group">
+                        <p>贊助商廣告</p>
+             
+           			</div>
+		 
+				<ul class="post-nav group">
+      
+ 
+		<li class="previous"> </li>
+  
+  
+		 <li class="next">  </li>
+ 
+	</ul>
+
+<div id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /109765683/300x250 -->
+<ins id="scupio-sc-4995-17521-400386" class="scupioadslot" style="display: inline-block; width: 300px; height: 250px; position: relative;" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17521" data-sca-slot-type="PRA" data-sca-status="loading" undefined="2"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="scupio-sc-4995-17521-400386_frame" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/ad(2).html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 300px; height: 250px; display: none;"></iframe><span id="viewability_detector_17521" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span></ins>
+<script async="" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/ad.js.下載"></script>
+<script>
+(function(s, c, u, p, i, o, a, d) {
+    'use strict';
+    var z=function(t,e,r){var a,n=document.createElement('ins'),s=n.style;for(a in n.className='scupioadslot',r&&(n.id=r),t)t.hasOwnProperty(a)&&(s[a]=t[a]);for(a in e)e.hasOwnProperty(a)&&n.setAttribute('data-sca-'+a,e[a]);return n};
+    (d = s.Scupioads = s.Scupioads || []).push({
+        id: u,
+        callback: function() {
+            p = c.getElementById(u);
+            i = p.style;
+            o = 'inline-block';
+            p.appendChild(z({
+                display: o,
+                width: '300px',
+                height: '250px',
+                margin: 'auto'
+            }, {
+                'pub': 'lRIJBAgyQA==',
+                'web': '4995',
+                'category': '17',
+                'cid': '17518',
+                'slot-type': 'STA'
+            }));
+            i.width = '300px';
+            i.height = '250px';
+            i.display = o;
+        }
+    });
+    setTimeout(function(){if(!s.Scupioads.init)for(i=d.length-1;0<=i;i--)if(d[i].id===u){d[i].callback(),d[i].callback=function(){};break}},1e3);
+})(window, document, 'scupio-sc-4995-17521-400386');
+</script>
+</div></div><div id="text-7" class="widget widget_text">			 
+		</div>
+        
+        <div id="alxtabs-2" class="widget widget_hu_tabs">
+<h3 class="widget-title"></h3>
+<ul class="alx-tabs-nav group tab-count-3"><li class="alx-tab tab-recent active"><a href="https://www.itread01.com/content/1547200686.html#tab-recent-2" title="熱門文章"><i class="far fa-clock"></i></a></li><li class="alx-tab tab-tags"><a href="https://www.itread01.com/content/1547200686.html#tab-tags-2" title="標籤"><i class="fas fa-star"></i> </a></li></ul>
+	<div class="alx-tabs-container">						
+			<ul id="tab-recent-2" class="alx-tab group" style="display: block;">
+								 
+					      
+                  <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200742.html">如何轉載CSDN部落格(轉載) </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200744.html">halcon OCR識別，訓練自己的OCR </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200803.html">Lucene全文檢索工具包學習筆記總結 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200804.html">Hadoop 原理學習——HDFS 架構與工作原理 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200805.html">自定義一個註解來獲取資料庫的連結 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200807.html">js中的ajax和jquery中的ajax學習筆記 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200807.html">我們一起學ABAP（04）~資料賦值和字串總結 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200808.html">Android與IOS的霸主之爭，早已預示了Dapp江湖格局的風雲變動 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200808.html">使用java隨機生成驗證碼 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1547200809.html">優秀程式設計師的45個習慣(轉載) </a></p>
+										</div>
+				</li>
+                
+                
+  	 
+				</ul><!--/.alx-tab-->
+
+			<ul id="tab-tags-2" class="alx-tab group" style="display: none;">
+				<li>
+					<a href="https://www.itread01.com/android/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">Android</a> 	
+					<a href="https://www.itread01.com/study/itools_download.html" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">iTools</a> 
+					<a href="https://www.itread01.com/mysql/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">Mysql</a> 
+					<a href="https://www.itread01.com/windows/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">Windows</a> 
+					<a href="https://www.3du.tw/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">三度辭典</a> 
+					<a href="https://oklife.tw/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">程式人生</a> 
+                   </li>
+			</ul><!--/.alx-tab-->
+
+			</div>
+</div>
+		</div><!--/.sidebar-content-->
+
+	</div><!--/.sidebar-->
+
+	
+
+        </div><!--/.main-inner-->
+      </div><!--/.main-->
+    </div><!--/.container-inner-->
+  </div><!--/.container-->
+    <footer id="footer">
+          <nav class="nav-container group" id="nav-footer" data-menu-id="footer-4" data-menu-scrollable="false">
+                      <!-- <div class="ham__navbar-toggler collapsed" aria-expanded="false">
+          <div class="ham__navbar-span-wrapper">
+            <span class="ham-toggler-menu__span"></span>
+          </div>
+        </div> -->
+        <div class="ham__navbar-toggler-two collapsed" title="Menu" aria-expanded="false">
+          <div class="ham__navbar-span-wrapper">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </div>
+        </div>
+                    <div class="nav-text"></div>
+        <div class="nav-wrap">
+          <ul id="menu-top-2" class="nav container group">
+           <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/" rel="nofollow">首頁</a></li>
+		   <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/study/python-tutorial.html">Python教學</a></li>
+ 
+</ul>        </div>
+      </nav><!--/#nav-footer-->
+    
+    <section class="container" id="footer-bottom">
+      <div class="container-inner">
+
+        <a id="back-to-top" href="https://www.itread01.com/content/1547200686.html#"><i class="fas fa-angle-up"></i></a>
+
+        <div class="pad group">
+
+          <div class="grid one-half">
+                        
+            <div id="copyright">
+                              <p>ITREAD01.COM © 2018. 版權所有。 </p>
+                          </div><!--/#copyright-->
+          </div>
+        </div><!--/.pad-->
+
+      </div><!--/.container-inner-->
+    </section><!--/.container-->
+
+  </footer><!--/#footer-->
+
+</div><!--/#wrapper-->
+
+<!-- Powered by WPtouch: 4.3.27 --><script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/jQuerySharrre.min.js.下載"></script>
+<script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/underscore.min.js.下載"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HUParams = {"_disabled":[],"SmoothScroll":{"Enabled":true,"Options":{"touchpadSupport":false}},"centerAllImg":"1","timerOnScrollAllBrowsers":"1","extLinksStyle":"1","extLinksTargetExt":"1","extLinksSkipSelectors":{"classes":["btn","button"],"ids":[]},"imgSmartLoadEnabled":"","imgSmartLoadOpts":{"parentSelectors":[".container .content",".container .sidebar","#footer","#header-widgets"],"opts":{"excludeImg":[".tc-holder-img"],"fadeIn_options":100}},"goldenRatio":"1.618","gridGoldenRatioLimit":"350","sbStickyUserSettings":{"desktop":true,"mobile":false},"isWPMobile":"","menuStickyUserSettings":{"desktop":"stick_up","mobile":"stick_up"},"isDevMode":"","ajaxUrl":"https:\/\/www.itread01.com\/?huajax=1","frontNonce":{"id":"HuFrontNonce","handle":"d9125fec3b"},"userStarted":{"with":"with|3.3.27","on":{"date":"2018-03-27 03:41:18.000000","timezone_type":3,"timezone":"UTC"}},"isWelcomeNoteOn":"","welcomeContent":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/scripts.min.js.下載"></script>
+<script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/wp-embed.min.js.下載"></script>
+
+<!--[if lt IE 9]>
+<script src="/img/css/js/respond.js"></script>
+<![endif]-->
+<div style="display:none"><script type="text/javascript" src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/c.js.下載"></script><script src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/z_stat.php" language="JavaScript"></script><script src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/core.php" charset="utf-8" type="text/javascript"></script><a href="https://www.cnzz.com/stat/website.php?web_id=1275098034" target="_blank" title="站长统计">站长统计</a>
+0.8485791683197</div>
+
+    <!-- Bootstrap core JavaScript ================================================== -->
+        <script src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/jquery.min.js.下載"></script>
+     
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+
+<script src="./如何理解 影象傅立葉變換的頻譜圖 如何理解 影象傅立葉變換的頻譜圖 - IT閱讀_files/highlight.min.js.下載"></script>
+<script>
+function joinUrl(url, concat) {
+  var url1 = url.split('/');
+  var url2 = concat.split('/');
+  var url3 = [ ];
+  for (var i = 0, l = url1.length; i < l; i ++) {
+    if (url1[i] == '..') {
+      url3.pop();
+    } else if (url1[i] == '.') {
+      continue;
+    } else {
+      url3.push(url1[i]);
+    }
+  }
+  for (var i = 0, l = url2.length; i < l; i ++) {
+    if (url2[i] == '..') {
+      url3.pop();
+    } else if (url2[i] == '.') {
+      continue;
+    } else {
+      url3.push(url2[i]);
+    }
+  }
+  return url3.join('/');
+}
+$(document).ready(function() {
+    $('pre').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+	var source = $('#source-url').html();
+	if(source.indexOf('segmentfault.com') > 0) {
+		var imgs = $('#main-content').find('img');
+		$.each(imgs, function(index, img) {
+			var data_src = $(img).attr('data-src');
+			data_src = 'https://segmentfault.com' + data_src;
+			console.log(data_src);
+			$(img).attr('src', data_src);
+			// $(img).attr('src', '');
+		});
+	}
+});
+</script></body></html>
