@@ -13,8 +13,15 @@ cx=802.0;
 cy=550.0;
 phi0 = 0;
 phiEnd=  2*pi;
-
-ITrans = transImageInvPolar(I, cx, cy, in, out, phi0, phiEnd, 1);
+figure, imshow(I,[])
+ITrans1 = transImageInvPolar_2(I, cx, cy, in, out, phi0, phiEnd, 0);
+ITrans2 = transImageInvPolar_3(I, cx, cy, in, out, phi0, phiEnd, 0, 360);
+% ITrans3 = transImageInvPolar_4(I, cx, cy, in, out, phi0, phiEnd, 0);
+ITrans1 = imresize(ITrans1,[size(ITrans1,1),360]);
+% diff = ITrans1 - ITrans3;
+% figure, imshow(uint8(diff+127))
+figure, imshow(uint8(ITrans1))
+figure, imshow(uint8(ITrans2))
 
 % You will notice a black (unmapped) area in ITrans. This corresponds to
 % the missing circular part on the top of the image (the rest of the
