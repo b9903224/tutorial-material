@@ -18,5 +18,6 @@ e.g.: python -m http.server 9000
 https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E5%96%AE%E7%9A%84http%E6%9C%8D%E5%8B%99%E5%99%A8
 
 ## Excel
-公式現形: Ctrl+~
-切換絕對/相對座標: F4
+公式現形: Ctrl+~  
+切換絕對/相對座標: F4  
+Excel 基礎教學 https://www.youtube.com/playlist?list=PL7enJ2-v6SPm-EHMuRMCG7R7C-vXQugNM  
