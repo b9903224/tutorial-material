@@ -19,3 +19,4 @@ https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E
 
 ## Excel
 公式現形: Ctrl+~
+切換絕對/相對座標: F4
