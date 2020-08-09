@@ -30,3 +30,6 @@ https://www.mathworks.com/help/install/license/concurrent-licenses.html
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
 https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/content/environment-variable.html
+
+## bat
+跳行: _  
