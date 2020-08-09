@@ -31,5 +31,7 @@ https://www.mathworks.com/help/install/license/concurrent-licenses.html
 windows環境變數: 查詢/新增/修改/刪除  
 https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/content/environment-variable.html
 
-## bat
+## VBA
 跳行: _  
+註解: Rem or '  
+
