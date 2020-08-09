@@ -25,3 +25,8 @@ Excel 基礎教學 https://www.youtube.com/playlist?list=PL7enJ2-v6SPm-EHMuRMCG7
 ## MATLAB License Mangager Timeout設定  
 http://matrix.etseq.urv.es/manuals/matlab/techdoc/install/pc/ch3_lic4.html  
 https://www.mathworks.com/help/install/license/concurrent-licenses.html  
+
+
+## bat
+windows環境變數: 查詢/新增/修改/刪除  
+https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/content/environment-variable.html
