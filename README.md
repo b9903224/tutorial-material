@@ -22,10 +22,13 @@ https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E
 切換絕對/相對座標: F4  
 Excel 基礎教學 https://www.youtube.com/playlist?list=PL7enJ2-v6SPm-EHMuRMCG7R7C-vXQugNM  
 
-## MATLAB License Mangager Timeout設定  
+## MATLAB 
+### License Mangager Timeout設定  
 http://matrix.etseq.urv.es/manuals/matlab/techdoc/install/pc/ch3_lic4.html  
 https://www.mathworks.com/help/install/license/concurrent-licenses.html  
 
+### ROI
+https://www.mathworks.com/help/images/measure-distances-in-images.html  
 
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
