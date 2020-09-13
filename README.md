@@ -21,6 +21,7 @@ https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
 Excel 基礎教學 https://www.youtube.com/playlist?list=PL7enJ2-v6SPm-EHMuRMCG7R7C-vXQugNM  
+利用VBA在Excel2010製作自動化流程(上)(VBA教學) https://www.youtube.com/watch?v=jgeCQJDjm44&ab_channel=%E5%AD%AB%E5%9C%A8%E9%99%BD  
 
 ## MATLAB 
 #### License Mangager Timeout設定  
