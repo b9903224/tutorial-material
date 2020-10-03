@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://iter01.com/47582.html -->
+<html lang="zh-Hant" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Python 爬蟲模擬登入方法彙總 | IT人</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="摘要： 在進行爬蟲時，除了常見的不用登入就能爬取的網站，還有一類需要先登入的網站。比如豆瓣、知乎，以及上一篇文章中的桔子網。這一類網站又可以分為：只需輸入帳號密碼、除了帳號密碼還需輸入或點選驗證碼等型別。本文以只需輸入賬號密碼就能登入的桔子網為例，介紹模擬登入常用的 3 種方法。POST 請求方法：">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://iter01.com/47582.html">
+<meta property="og:title" content="Python 爬蟲模擬登入方法彙總">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iter01.com/47582.html">
+<meta property="og:description" content="摘要： 在進行爬蟲時，除了常見的不用登入就能爬取的網站，還有一類需要先登入的網站。比如豆瓣、知乎，以及上一篇文章中的桔子網。這一類網站又可以分為：只需輸入帳號密碼、除了帳號密碼還需輸入或點選驗證碼等型別。本文以只需輸入賬號密碼就能登入的桔子網為例，介紹模擬登入常用的 3 種方法。POST 請求方法：">
+<meta property="og:site_name" content="IT人">
+<meta property="og:ttl" content="2592000">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://iter01.com/47582.html">
+<meta name="twitter:title" content="Python 爬蟲模擬登入方法彙總">
+<meta name="twitter:description" content="摘要： 在進行爬蟲時，除了常見的不用登入就能爬取的網站，還有一類需要先登入的網站。比如豆瓣、知乎，以及上一篇文章中的桔子網。這一類網站又可以分為：只需輸入帳號密碼、除了帳號密碼還需輸入或點選驗證碼等型別。本文以只需輸入賬號密碼就能登入的桔子網為例，介紹模擬登入常用的 3 種方法。">
+<script type="text/javascript" async="" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/analytics.js.下載"></script><script data-ad-client="ca-pub-7340274291447970" async="" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/f.txt"></script>
+<link rel="stylesheet" href="./Python 爬蟲模擬登入方法彙總 _ IT人_files/0f37a415eec5.css" type="text/css">
+<style>
+        
+    
+    
+    .block {
+    margin-top: 60px;
+    }
+    .block-title {
+    border-left: 5px solid darkred;
+    padding-left:10px;
+    font-size:21pt;
+    }
+
+    .item {
+    float:left; display:inline-block; width:320px; height:460px; margin:0 10px 30px 10px; border:1px solid #666; padding:10px;
+    }
+
+    .item-title {
+    margin:5px 0 5px 0; padding:0;
+    }
+    .item-title a {
+    color:#000;
+    }
+
+    .item-topic {
+    font-size:12pt;
+    }
+
+    .item-topic a {
+    color:#878A8C;
+    border: 1px solid #aaa;
+    padding: 5px 5px 5px 5px;
+    margin-right: 10px;
+    }
+
+
+
+
+
+    .item-date {
+    font-size:10pt; color:#878A8C;
+    }
+    .item-date a {
+    color:#878A8C;
+    }
+
+    .item-desc {
+    margin-top:5px;
+    font-size:12pt; line-height:1.3em; color:#666; word-break:break-all;
+    }
+
+    
+.ad-rwd-h { width: 300px; height: 250px; }
+@media(min-width: 500px) { .ad-rwd-h { width: 300px; height: 250px; } }
+@media(min-width: 800px) { .ad-rwd-h { width: 728px; height: 90px; } }
+
+.ad-rwd-fh-wrapper { width:320px; margin:0 auto; }
+@media(min-width:500px) { .ad-rwd-fh-wrapper { width:468px; margin:0; } }
+@media(min-width:800px) { .ad-rwd-fh-wrapper { width:728px; margin:0; } }
+    
+
+
+    ul.article-list {
+    margin:0;
+    padding:0;
+    }
+
+    ul.article-list li {
+    width: 98%;
+    margin:5px;
+    border-top: 1px solid #aaa;
+    padding: 15px 10px 10px 5px;
+    display: block;
+    }
+
+    ul.article-list li .article-title {
+    font-size: 14pt;
+    color: #222222;
+    display:block;
+    }
+    ul.article-list li .article-meta {
+    margin-top:5px;
+    }
+
+
+    a {
+    word-wrap: break-word;
+    }
+
+    </style>
+<link rel="stylesheet" type="text/css" href="./Python 爬蟲模擬登入方法彙總 _ IT人_files/prettify.css"></head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="https://iter01.com/">IT人</a>
+</div>
+<div id="navbar" class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+</ul>
+</div>
+</div>
+</nav>
+<div class="container" id="main">
+<div class="row">
+<ol class="breadcrumb">
+<li><a href="https://iter01.com/">IT人</a></li>
+</ol>
+</div>
+<div class="row row-offcanvas row-offcanvas-right">
+<div class="col-xs-12 col-sm-12 ">
+<div class="row" style="padding:0;">
+</div>
+<div class="row"></div>
+<div class="row" style="padding:5px;">
+<div>
+<h1>Python 爬蟲模擬登入方法彙總</h1>
+<div class="meta-info"><span class="author">蘇克1900</span> 發表於
+<span class="post-time">2018-10-29</span>
+</div>
+<div>
+<div style="margin-top:10px;">
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span>
+<span class="item-topic"><a href="https://iter01.com/topic/31.html">爬蟲</a></span>
+</div>
+</div>
+<div style="width:100%; margin:30px auto;">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7340274291447970" data-ad-slot="1184153650" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div style="word-wrap: break-word;">
+<div data-id="5bd6ad4b6fb9a05d2659a8fb" itemprop="articleBody" class="article-content" data-v-19550c40=""><p><strong>摘要：</strong> 在進行爬蟲時，除了常見的不用登入就能爬取的網站，還有一類需要先登入的網站。比如豆瓣、知乎，以及上一篇文章中的桔子網。這一類網站又可以分為：只需輸入帳號密碼、除了帳號密碼還需輸入或點選驗證碼等型別。本文以只需輸入賬號密碼就能登入的桔子網為例，介紹模擬登入常用的 3 種方法。</p>
+<ul>
+<li>POST 請求方法：需要在後臺獲取登入的 URL並填寫請求體引數，然後 POST 請求登入，相對麻煩；</li>
+<li>新增 Cookies 方法：先登入將獲取到的 Cookies 加入 Headers 中，最後用 GET 方法請求登入，這種最為方便；</li>
+<li>Selenium 模擬登入：代替手工操作，自動完成賬號和密碼的輸入，簡單但速度比較慢。</li>
+</ul>
+<p>下面，我們用程式碼分別實現上述 3 種方法。</p>
+<h2 class="heading" data-id="heading-0">1. 目標網頁</h2>
+<p>這是我們要獲取內容的網頁：</p>
+<p><a target="_blank" href="https://link.juejin.im/?target=http%3A%2F%2Fradar.itjuzi.com%2Finvestevent" rel="nofollow">radar.itjuzi.com/investevent</a></p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/2a6608e712c8d057aa2f15e038e58469ca8f2c3f9a63589c17e0d1f09081237d.png" data-width="1280" data-height="606" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/2a6608e712c8d057aa2f15e038e58469ca8f2c3f9a63589c17e0d1f09081237d.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>這個網頁需要先登入才能看到資料資訊，登入介面如下：</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/6c296495b5dd78afa60ef760cce434c1e8b37e8fefb50c8fa1f5592d504db3e6.png" data-width="1280" data-height="606" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/6c296495b5dd78afa60ef760cce434c1e8b37e8fefb50c8fa1f5592d504db3e6.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>可以看到，只需要輸入賬號和密碼就可以登入，不用輸驗證碼，比較簡單。下面我們利用一個測試賬號和密碼，來實現模擬登入。</p>
+<h2 class="heading" data-id="heading-1">2. POST 提交請求登入</h2>
+<p>首先，我們要找到 POST 請求的 URL。</p>
+<p>有兩種方法，第一種是在網頁 devtools 檢視請求，第二種是在 Fiddler 軟體中檢視。</p>
+<p>先說第一種方法。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/2ae571efe3bd4fa0c60e8496bf65e0f06567a39b4a21b2390745416f73a0eacb.png" data-width="1280" data-height="606" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/2ae571efe3bd4fa0c60e8496bf65e0f06567a39b4a21b2390745416f73a0eacb.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>在登入介面輸入賬號密碼，並開啟開發者工具，清空所有請求，接著點選登入按鈕，這時便會看到有大量請求產生。哪一個才是 POST 請求的 URL呢？這個需要一點經驗，因為是登入，所以可以嘗試點選帶有 「login」字眼的請求。這裡我們點選第四個請求，在右側 Headers 中可以看到請求的 URL，請求方式是 POST型別，說明 URL 找對了。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/8ef6d1074e38dafaffd2687d108584bfccc30fc2e4a3073a0f30e260e6e9197f.png" data-width="1280" data-height="606" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/8ef6d1074e38dafaffd2687d108584bfccc30fc2e4a3073a0f30e260e6e9197f.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>接著，我們下拉到 Form Data，這裡有幾個引數，包括 identify 和 password，這兩個引數正是我們登入時需要輸入的賬號和密碼，也就是 POST 請求需要攜帶的引數。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/51f9b10e40da83cf54ed79c0afe494f5805c2ed81d5375f8b435e719197f0eca.png" data-width="1280" data-height="606" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/51f9b10e40da83cf54ed79c0afe494f5805c2ed81d5375f8b435e719197f0eca.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>引數構造非常簡單，接下來只需要利用 Requests.post 方法請求登入網站，然後就可以爬取內容了。</p>
+<p>下面，我們嘗試用 Fiddler 獲取 POST 請求。</p>
+<p>如果你對 Fiddler 還不太熟悉或者沒有電腦上沒有安裝，可以先了解和安裝一下。</p>
+<blockquote>
+<p>Fiddler 是位於客戶端和伺服器端的 HTTP 代理，也是目前最常用的 HTTP 抓包工具之一 。 它能夠記錄客戶端和伺服器之間的所有 HTTP 請求，可以針對特定的 HTTP 請求，分析請求資料、設定斷點、除錯 web 應用、修改請求的資料，甚至可以修改伺服器返回的資料，功能非常強大，是 web 除錯的利器。</p>
+</blockquote>
+<p>Fiddler 下載地址：</p>
+<p><a target="_blank" href="https://link.juejin.im/?target=https%3A%2F%2Fwww.telerik.com%2Fdownload%2Ffiddler" rel="nofollow">www.telerik.com/download/fi…</a></p>
+<p>使用教程：</p>
+<p><a target="_blank" href="https://link.juejin.im/?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F37374178" rel="nofollow">zhuanlan.zhihu.com/p/37374178</a></p>
+<p><a target="_blank" href="https://link.juejin.im/?target=http%3A%2F%2Fwww.hangge.com%2Fblog%2Fcache%2Fdetail_1697.html" rel="nofollow">www.hangge.com/blog/cache/…</a></p>
+<p>下面，我們就通過 Fiddler 擷取登入請求。</p>
+<p>當點選登入時，官場 Fiddler 頁面，左側可以看到抓取了大量請求。通過觀察，第15個請求的 URL中含有「login」欄位，很有可能是登入的 POST 請求。我們點選該請求，回到右側，分別點選「inspectors」、「Headers」，可以看到就是 POST 請求，該 URL 和上面的方法獲取的 URL 是一致的。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/3d17e096f57a8593d8173e3a95b8983e635865e5aa32c6244e519973ea269ea2.png" data-width="1280" data-height="691" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/3d17e096f57a8593d8173e3a95b8983e635865e5aa32c6244e519973ea269ea2.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>接著，切換到右側的 Webforms 選項，可以看到 Body 請求體。也和上面方法中得到的一致。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/57bbbaeff87b5440fe27914694c52667717ad89201fc4ff40c6aa1f82f64ade3.png" data-width="1280" data-height="691" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/57bbbaeff87b5440fe27914694c52667717ad89201fc4ff40c6aa1f82f64ade3.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>獲取到 URL 和請求體引數之後，下面就可以開始用 Requests.post 方法模擬登入了。</p>
+<p>程式碼如下：</p>
+<pre><code class="prettyprint prettyprinted" lang="python" style=""><span class="hljs-keyword"><span class="kwd">import</span></span><span class="pln"> requests
+headers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="hljs-string"><span class="str">'User-Agent'</span></span><span class="pun">:</span><span class="pln"> </span><span class="hljs-string"><span class="str">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'</span></span><span class="pun">,</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+data </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="hljs-string"><span class="str">'identity'</span></span><span class="pun">:</span><span class="hljs-string"><span class="str">'</span><span class="str">irw27812@awsoo.com</span><span class="str">'</span></span><span class="pun">,</span><span class="pln">   
+    </span><span class="hljs-string"><span class="str">'password'</span></span><span class="pun">:</span><span class="hljs-string"><span class="str">'test2018'</span></span><span class="pun">,</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+url </span><span class="pun">=</span><span class="hljs-string"><span class="str">'https://www.itjuzi.com/user/login?redirect=&amp;flag=&amp;radar_coupon='</span></span><span class="pln">
+session </span><span class="pun">=</span><span class="pln"> requests</span><span class="pun">.</span><span class="typ">Session</span><span class="pun">()</span><span class="pln">
+session</span><span class="pun">.</span><span class="pln">post</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,</span><span class="pln">headers </span><span class="pun">=</span><span class="pln"> headers</span><span class="pun">,</span><span class="pln">data </span><span class="pun">=</span><span class="pln"> data</span><span class="pun">)</span><span class="pln">
+</span><span class="hljs-comment"><span class="com"># 登入後，我們需要獲取另一個網頁中的內容</span></span><span class="pln">
+response </span><span class="pun">=</span><span class="pln"> session</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="hljs-string"><span class="str">'http://radar.itjuzi.com/investevent'</span></span><span class="pun">,</span><span class="pln">headers </span><span class="pun">=</span><span class="pln"> headers</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">response</span><span class="pun">.</span><span class="pln">status_code</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">response</span><span class="pun">.</span><span class="pln">text</span><span class="pun">)</span><span class="pln">
+</span><span class="copy-code-btn"><span class="pun">複製程式碼</span></span></code></pre><p>使用 session.post 方法提交登入請求，然後用 session.get 方法請求目標網頁，並輸出 HTML程式碼。可以看到，成功獲取到了網頁內容。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/94db44bebc73dbd19e47a6502875fb83eb4bccd3e1876decdf7c1c55c5abd943.png" data-width="1280" data-height="620" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/94db44bebc73dbd19e47a6502875fb83eb4bccd3e1876decdf7c1c55c5abd943.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>下面，介紹第 2 種方法。</p>
+<h2 class="heading" data-id="heading-2">3. 獲取 Cookies，直接請求登入</h2>
+<p>上面一種方法，我們需要去後臺獲取 POST 請求連結和引數，比較麻煩。下面，我們可以嘗試先登入，獲取 Cookie，然後將該 Cookie 新增到 Headers 中去，然後用 GET 方法請求即可，過程簡單很多。</p>
+<p>程式碼如下：</p>
+<pre><code class="prettyprint prettyprinted" lang="python" style=""><span class="hljs-keyword"><span class="kwd">import</span></span><span class="pln"> requests
+headers </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="hljs-string"><span class="str">'User-Agent'</span></span><span class="pun">:</span><span class="pln"> </span><span class="hljs-string"><span class="str">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'</span></span><span class="pun">,</span><span class="pln">
+    </span><span class="hljs-string"><span class="str">'Cookie'</span></span><span class="pun">:</span><span class="pln"> </span><span class="hljs-string"><span class="str">'你的cookie'</span></span><span class="pun">,</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+url </span><span class="pun">=</span><span class="pln"> </span><span class="hljs-string"><span class="str">'https://www.itjuzi.com/user/login?redirect=&amp;flag=&amp;radar_coupon='</span></span><span class="pln">
+session </span><span class="pun">=</span><span class="pln"> requests</span><span class="pun">.</span><span class="typ">Session</span><span class="pun">()</span><span class="pln">
+response </span><span class="pun">=</span><span class="pln"> session</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="hljs-string"><span class="str">'http://radar.itjuzi.com/investevent'</span></span><span class="pun">,</span><span class="pln"> headers</span><span class="pun">=</span><span class="pln">headers</span><span class="pun">)</span><span class="pln">
+
+</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">response</span><span class="pun">.</span><span class="pln">status_code</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">response</span><span class="pun">.</span><span class="pln">text</span><span class="pun">)</span><span class="pln">
+</span><span class="copy-code-btn"><span class="pun">複製程式碼</span></span></code></pre><p>可以看到，新增了 Cookie 後就不用再 POST 請求了，直接 GET 請求目標網頁即可。可以看到，也能成功獲取到網頁內容。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/4ff7ad7038b02a454a239b2af8e5a502b29ac9ac30830b5b78a64a2219156d21.png" data-width="1280" data-height="621" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/4ff7ad7038b02a454a239b2af8e5a502b29ac9ac30830b5b78a64a2219156d21.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>下面介紹第 3 種方法。</p>
+<h2 class="heading" data-id="heading-3">4. Selenium 模擬登入</h2>
+<p>這個方法很直接，利用 Selenium 代替手動方法去自動輸入賬號密碼然後登入就行了。</p>
+<p>關於 Selenium 的使用，在之前的一篇文章中有詳細介紹，如果你不熟悉可以回顧一下：</p>
+<p><a target="_blank" href="https://link.juejin.im/?target=https%3A%2F%2Fwww.makcyun.top%2Fweb_scraping_withpython5.html" rel="nofollow">www.makcyun.top/web_scrapin…</a></p>
+<p>程式碼如下：</p>
+<pre><code class="prettyprint prettyprinted" lang="python" style=""><span class="hljs-keyword"><span class="kwd">from</span></span><span class="pln"> selenium </span><span class="hljs-keyword"><span class="kwd">import</span></span><span class="pln"> webdriver
+</span><span class="hljs-keyword"><span class="kwd">from</span></span><span class="pln"> selenium</span><span class="pun">.</span><span class="pln">webdriver</span><span class="pun">.</span><span class="pln">common</span><span class="pun">.</span><span class="kwd">by</span><span class="pln"> </span><span class="hljs-keyword"><span class="kwd">import</span></span><span class="pln"> </span><span class="typ">By</span><span class="pln">
+</span><span class="hljs-keyword"><span class="kwd">from</span></span><span class="pln"> selenium</span><span class="pun">.</span><span class="pln">webdriver</span><span class="pun">.</span><span class="pln">support </span><span class="hljs-keyword"><span class="kwd">import</span></span><span class="pln"> expected_conditions </span><span class="hljs-keyword"><span class="kwd">as</span></span><span class="pln"> EC
+</span><span class="hljs-keyword"><span class="kwd">from</span></span><span class="pln"> selenium</span><span class="pun">.</span><span class="pln">webdriver</span><span class="pun">.</span><span class="pln">support</span><span class="pun">.</span><span class="pln">wait </span><span class="hljs-keyword"><span class="kwd">import</span></span><span class="pln"> </span><span class="typ">WebDriverWait</span><span class="pln">
+browser </span><span class="pun">=</span><span class="pln"> webdriver</span><span class="pun">.</span><span class="typ">Chrome</span><span class="pun">()</span><span class="pln">
+browser</span><span class="pun">.</span><span class="pln">maximize_window</span><span class="pun">()</span><span class="pln">  </span><span class="hljs-comment"><span class="com"># 最大化視窗</span></span><span class="pln">
+wait </span><span class="pun">=</span><span class="pln"> </span><span class="typ">WebDriverWait</span><span class="pun">(</span><span class="pln">browser</span><span class="pun">,</span><span class="pln"> </span><span class="hljs-number"><span class="lit">10</span></span><span class="pun">)</span><span class="pln"> </span><span class="hljs-comment"><span class="com"># 等待載入10s</span></span><span class="pln">
+
+</span><span class="hljs-function"><span class="hljs-keyword"><span class="kwd">def</span></span><span class="pln"> </span><span class="hljs-title"><span class="pln">login</span></span><span class="hljs-params"><span class="pun">()</span></span><span class="pun">:</span></span><span class="pln">
+    browser</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="hljs-string"><span class="str">'https://www.itjuzi.com/user/login'</span></span><span class="pun">)</span><span class="pln">
+    input </span><span class="pun">=</span><span class="pln"> wait</span><span class="pun">.</span><span class="kwd">until</span><span class="pun">(</span><span class="pln">EC</span><span class="pun">.</span><span class="pln">presence_of_element_located</span><span class="pun">(</span><span class="pln">
+        </span><span class="pun">(</span><span class="typ">By</span><span class="pun">.</span><span class="pln">XPATH</span><span class="pun">,</span><span class="pln"> </span><span class="hljs-string"><span class="str">'//*[@id="create_account_email"]'</span></span><span class="pun">)))</span><span class="pln">
+    input</span><span class="pun">.</span><span class="pln">send_keys</span><span class="pun">(</span><span class="hljs-string"><span class="str">'</span><span class="str">irw27812@awsoo.com</span><span class="str">'</span></span><span class="pun">)</span><span class="pln">
+    input </span><span class="pun">=</span><span class="pln"> wait</span><span class="pun">.</span><span class="kwd">until</span><span class="pun">(</span><span class="pln">EC</span><span class="pun">.</span><span class="pln">presence_of_element_located</span><span class="pun">(</span><span class="pln">
+        </span><span class="pun">(</span><span class="typ">By</span><span class="pun">.</span><span class="pln">XPATH</span><span class="pun">,</span><span class="pln"> </span><span class="hljs-string"><span class="str">'//*[@id="create_account_password"]'</span></span><span class="pun">)))</span><span class="pln">
+    input</span><span class="pun">.</span><span class="pln">send_keys</span><span class="pun">(</span><span class="hljs-string"><span class="str">'test2018'</span></span><span class="pun">)</span><span class="pln">
+    submit </span><span class="pun">=</span><span class="pln"> wait</span><span class="pun">.</span><span class="kwd">until</span><span class="pun">(</span><span class="pln">EC</span><span class="pun">.</span><span class="pln">element_to_be_clickable</span><span class="pun">(</span><span class="pln">
+        </span><span class="pun">(</span><span class="typ">By</span><span class="pun">.</span><span class="pln">XPATH</span><span class="pun">,</span><span class="pln"> </span><span class="hljs-string"><span class="str">'//*[@id="login_btn"]'</span></span><span class="pun">)))</span><span class="pln">
+    submit</span><span class="pun">.</span><span class="pln">click</span><span class="pun">()</span><span class="pln"> </span><span class="hljs-comment"><span class="com"># 點選登入按鈕</span></span><span class="pln">
+    get_page_index</span><span class="pun">()</span><span class="pln">
+
+</span><span class="hljs-function"><span class="hljs-keyword"><span class="kwd">def</span></span><span class="pln"> </span><span class="hljs-title"><span class="pln">get_page_index</span></span><span class="hljs-params"><span class="pun">()</span></span><span class="pun">:</span></span><span class="pln">
+    browser</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="hljs-string"><span class="str">'http://radar.itjuzi.com/investevent'</span></span><span class="pun">)</span><span class="pln">
+    </span><span class="hljs-keyword"><span class="kwd">try</span></span><span class="pun">:</span><span class="pln">
+        </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">browser</span><span class="pun">.</span><span class="pln">page_source</span><span class="pun">)</span><span class="pln">  </span><span class="hljs-comment"><span class="com"># 輸出網頁原始碼</span></span><span class="pln">
+    </span><span class="hljs-keyword"><span class="kwd">except</span></span><span class="pln"> </span><span class="typ">Exception</span><span class="pln"> </span><span class="hljs-keyword"><span class="kwd">as</span></span><span class="pln"> e</span><span class="pun">:</span><span class="pln">
+        </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">str</span><span class="pun">(</span><span class="pln">e</span><span class="pun">))</span><span class="pln">
+login</span><span class="pun">()</span><span class="pln">
+
+</span><span class="copy-code-btn"><span class="pun">複製程式碼</span></span></code></pre><p>這裡，我們在網頁中首先定位了賬號節點位置：<code>'//*[@id="create_account_email"]'</code>，然後用 input.send_keys 方法輸入賬號，同理，定位了密碼框位置並輸入了密碼。接著定位 <strong>登入</strong> 按鈕的位置：<code>//*[@id="login_btn"]</code>，然後用 submit.click() 方法實現點選登入按鈕操作，從而完成登入。可以看到，也能成功獲取到網頁內容。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/024e0223f49dd05ebfb380beabf6e624d08878b97ce9653c472b8ece5d497a99.png" data-width="1280" data-height="621" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/024e0223f49dd05ebfb380beabf6e624d08878b97ce9653c472b8ece5d497a99.png" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<p>以上就是模擬需登入網站的幾種方法。當登入進去後，就可以開始爬取所需內容了。</p>
+<h2 class="heading" data-id="heading-4">5. 總結：</h2>
+<ul>
+<li>本文分別實現了模擬登入的 3 種操作方法，建議優先選擇第 2 種，即先獲取 Cookies 再 Get 請求直接登入的方法。</li>
+<li>本文模擬登入的網站，僅需輸入賬號密碼，不需要獲取相關加密引數，比如 Authenticity_token ，同時也無需輸入驗證碼，所以方法比較簡單。但是還有很多網站模擬登入時，需要處理加密引數、驗證碼輸入等問題。後續將會介紹。</li>
+</ul>
+<p>推薦閱讀：</p>
+<p>本文完。</p>
+<p></p><figure><img class="lazyload" data-src="https://i.iter01.com/images/01c5e5a645def5e73122565732d5a9eeb21eb50efb560a6029349a7266f66397.jpg" data-width="1280" data-height="810" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/01c5e5a645def5e73122565732d5a9eeb21eb50efb560a6029349a7266f66397.jpg" alt="Python 爬蟲模擬登入方法彙總"><figcaption></figcaption></figure><p></p>
+<center>歡迎長按識別關注我的公眾號</center>
+</div>
+</div>
+<div style="width:100%; margin:30px auto 0;">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7340274291447970" data-ad-slot="1184153650" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="block">
+<h3 class="block-title">相關文章</h3>
+<ul class="article-list">
+<li>
+<a class="article-title" href="https://iter01.com/442277.html" title="python 爬蟲 Demo webdriver">python 爬蟲 Demo webdriver</a>
+<div class="article-meta">
+<span class="item-date">2019-09-25</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span><span class="item-topic"><a href="https://iter01.com/topic/31.html">爬蟲</a></span>
+ </div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/442535.html" title="Python 執行 Linux 作業系統命令">Python 執行 Linux 作業系統命令</a>
+<div class="article-meta">
+<span class="item-date">2019-09-26</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span><span class="item-topic"><a href="https://iter01.com/topic/37.html">Linux</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/442616.html" title="從招聘網看Python就業前景">從招聘網看Python就業前景</a>
+<div class="article-meta">
+<span class="item-date">2019-09-27</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/442808.html" title="我用Python程式語言做了一些神奇好玩的事情">我用Python程式語言做了一些神奇好玩的事情</a>
+<div class="article-meta">
+<span class="item-date">2019-09-29</span>
+<span class="item-topic"><a href="https://iter01.com/topic/1.html">程式語言</a></span><span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/442831.html" title="python + flask 開發的微信公眾號和文章管理系統">python + flask 開發的微信公眾號和文章管理系統</a>
+<div class="article-meta">
+<span class="item-date">2019-09-29</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span><span class="item-topic"><a href="https://iter01.com/topic/54.html">Flask</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/442835.html" title="用 Python 入門資料科學">用 Python 入門資料科學</a>
+<div class="article-meta">
+<span class="item-date">2019-09-30</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/442902.html" title="Python之 常用查詢演算法：最小項搜尋、順序搜尋、二分搜尋">Python之 常用查詢演算法：最小項搜尋、順序搜尋、二分搜尋</a>
+<div class="article-meta">
+<span class="item-date">2019-09-30</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span><span class="item-topic"><a href="https://iter01.com/topic/26.html">演算法</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/442943.html" title="大話 python 之鴨子">大話 python 之鴨子</a>
+<div class="article-meta">
+<span class="item-date">2019-10-01</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/443051.html" title="python 詳解re模組">python 詳解re模組</a>
+<div class="article-meta">
+<span class="item-date">2019-10-05</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/443255.html" title="python之matplotlib模組繪製常見的啟用函式及各啟用函式的優缺點">python之matplotlib模組繪製常見的啟用函式及各啟用函式的優缺點</a>
+<div class="article-meta">
+<span class="item-date">2019-10-07</span>
+<span class="item-topic"><a href="https://iter01.com/topic/14.html">Python</a></span><span class="item-topic"><a href="https://iter01.com/topic/15.html">Matplotlib</a></span>
+</div>
+</li>
+</ul>
+</div>
+<div class="block">
+<h3 class="block-title">最新文章</h3>
+<ul class="article-list">
+<li>
+<a class="article-title" href="https://iter01.com/194108.html" title="Numpy基礎">Numpy基礎</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537342.html" title="影像處理的基礎知識(2)——建立與編輯選取(1)">影像處理的基礎知識(2)——建立與編輯選取(1)</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537341.html" title="第三週：java物件導向部分總結（2）">第三週：java物件導向部分總結（2）</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/102.html">物件導向</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537332.html" title="學習筆記（6):搞定大資料平臺：從入門到實戰-叢集JDK安裝配置">學習筆記（6):搞定大資料平臺：從入門到實戰-叢集JDK安裝配置</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537338.html" title="C語言公式法求一元二次方差的根">C語言公式法求一元二次方差的根</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537331.html" title="MySQL基礎之----資料型別篇(常用資料型別)">MySQL基礎之----資料型別篇(常用資料型別)</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/24.html">MySQL</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/513271.html" title="計算機網路基礎">計算機網路基礎</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/118.html">計算機網路</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537330.html" title="js效果——頁面如何讓換皮膚">js效果——頁面如何讓換皮膚</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537336.html" title="VMware 安裝 Ubuntu Server 18.04.5 LTS">VMware 安裝 Ubuntu Server 18.04.5 LTS</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537328.html" title="ORA-03113: end-of-file on communication channel 解決方法">ORA-03113: end-of-file on communication channel 解決方法</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537339.html" title="【C++ grammar】Enhancement for Type System (C++11 對型別系統的增強)">【C++ grammar】Enhancement for Type System (C++11 對型別系統的增強)</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/33.html">C++</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537337.html" title="玩轉java多執行緒 之多執行緒基礎 執行緒狀態 及執行緒停止實戰">玩轉java多執行緒 之多執行緒基礎 執行緒狀態 及執行緒停止實戰</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/16.html">Java</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537327.html" title="微軟輸入法怎麼翻頁">微軟輸入法怎麼翻頁</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/79.html">微軟</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537326.html" title="Mysql查詢練習">Mysql查詢練習</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/24.html">MySQL</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537334.html" title="【密碼學原理】流密碼和RC4演算法">【密碼學原理】流密碼和RC4演算法</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/26.html">演算法</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537333.html" title="資料視覺化之matplotlib實戰：plt.pie()函式 繪製餅狀圖">資料視覺化之matplotlib實戰：plt.pie()函式 繪製餅狀圖</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/15.html">Matplotlib</a></span><span class="item-topic"><a href="https://iter01.com/topic/63.html">視覺化</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537324.html" title="spring-boot-route（二）讀取配置檔案的幾種方式">spring-boot-route（二）讀取配置檔案的幾種方式</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/104.html">Spring</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537312.html" title="CSS3實現動畫不會影響主執行緒，JS實現動畫會影響主執行緒">CSS3實現動畫不會影響主執行緒，JS實現動畫會影響主執行緒</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/85.html">CSS</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537315.html" title="Java入門程式設計師必看：給陣列進行排序">Java入門程式設計師必看：給陣列進行排序</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+<span class="item-topic"><a href="https://iter01.com/topic/16.html">Java</a></span><span class="item-topic"><a href="https://iter01.com/topic/146.html">程式設計師</a></span>
+</div>
+</li>
+<li>
+<a class="article-title" href="https://iter01.com/537313.html" title="自我簡介——tht">自我簡介——tht</a>
+<div class="article-meta">
+<span class="item-date">2020-10-03</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row"></div>
+</div>
+</div>
+<hr>
+<footer>
+<p>© <a href="https://iter01.com/">iter01.com</a> 2020
+</p>
+</footer>
+</div>
+<script src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/jquery.min.js.下載"></script>
+<script async="" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/run_prettify.min.js.下載"></script>
+<script type="text/javascript" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/ff011ee97f06.js.下載" async=""></script>
+<script async="" src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-272347-129');
+</script>
+<script src="./Python 爬蟲模擬登入方法彙總 _ IT人_files/aap"></script>
+<script>var ttt = '0.1479637622833252';</script>
+
+
+</body></html>
