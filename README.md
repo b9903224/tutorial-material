@@ -39,3 +39,7 @@ https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/con
 跳行: _  
 註解: Rem or '  
 
+## 爬蟲
+[Python實戰應用]淺談Python Selenium網站自動化套件  
+https://www.learncodewithmike.com/2020/02/python-selenium.html
+
