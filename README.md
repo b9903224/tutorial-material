@@ -13,9 +13,13 @@ https://www.mathworks.com/matlabcentral/answers/425165-how-can-i-send-a-file-via
 1. 將exe執行到此nonadmin.bat
 2. 以nox_setup_v7.0.0.0_full_intl.bat為範例進行修改
 
-## python架簡單HTTP Server: 用IP就能訪問
+## python
+#### 架簡單HTTP Server: 用IP就能訪問
 e.g.: python -m http.server 9000  
 https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E5%96%AE%E7%9A%84http%E6%9C%8D%E5%8B%99%E5%99%A8
+#### watershed
+(半手動) https://emmanuelle.github.io/a-tutorial-on-segmentation.html  
+https://github.com/scikit-image/scikit-image/issues/4398
 
 ## Excel
 公式現形: Ctrl+~  
@@ -46,7 +50,6 @@ pears (中文) https://www.itread01.com/content/1548046104.html
 imhmin (常搭配函數) https://www.mathworks.com/help/images/ref/imhmin.html  
 論文 http://www2.vincent-net.com/luc/papers/93ieeeip_recons.pdf  
 imreconstruct介紹 https://blogs.mathworks.com/steve/2008/07/14/opening-by-reconstruction/  
-python (半手動) https://emmanuelle.github.io/a-tutorial-on-segmentation.html  
 
 #### GUI
 影像點擊callback https://stackoverflow.com/questions/41718666/interactive-mouse-click-on-the-image-area-in-matlab-gui
