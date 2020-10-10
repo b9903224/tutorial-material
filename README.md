@@ -38,6 +38,18 @@ https://www.mathworks.com/help/matlab/creating_plots/callback-definition.html
 https://www.mathworks.com/matlabcentral/answers/292215-how-does-bwmorph-define-a-branch-point
 #### makelut、bwlookup
 https://www.twblogs.net/a/5b8689472b71775d1cd593bf
+#### watershed相關
+Steal grain https://www.mathworks.com/company/newsletters/articles/the-watershed-transform-strategies-for-image-segmentation.html  
+迷宮 https://www.mathworks.com/company/newsletters/articles/tips-and-tricks-solving-a-maze-with-the-watershed-transform.html?s_tid=srchtitle  
+pears https://www.mathworks.com/help/images/marker-controlled-watershed-segmentation.html
+pears (中文) https://www.itread01.com/content/1548046104.html  
+imhmin (常搭配函數) https://www.mathworks.com/help/images/ref/imhmin.html  
+論文 http://www2.vincent-net.com/luc/papers/93ieeeip_recons.pdf  
+imreconstruct介紹 https://blogs.mathworks.com/steve/2008/07/14/opening-by-reconstruction/  
+python (半手動) https://emmanuelle.github.io/a-tutorial-on-segmentation.html  
+
+#### GUI
+影像點擊callback https://stackoverflow.com/questions/41718666/interactive-mouse-click-on-the-image-area-in-matlab-gui
 
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
