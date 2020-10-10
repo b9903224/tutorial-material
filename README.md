@@ -34,6 +34,11 @@ https://www.mathworks.com/help/images/measure-distances-in-images.html
 #### Callback Definition
 https://www.mathworks.com/help/matlab/creating_plots/callback-definition.html
 
+#### 定義branch point
+https://www.mathworks.com/matlabcentral/answers/292215-how-does-bwmorph-define-a-branch-point
+#### makelut、bwlookup
+https://www.twblogs.net/a/5b8689472b71775d1cd593bf
+
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
 https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/content/environment-variable.html
