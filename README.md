@@ -25,6 +25,9 @@ https://github.com/scikit-image/scikit-image/issues/4398
 selenium css locator 範例
 https://jzchangmark.wordpress.com/2015/03/16/selenium-%E4%BD%BF%E7%94%A8-css-locator-%E5%AE%9A%E4%BD%8D%E5%85%83%E4%BB%B6/
 
+pip-not-working-behind-firewall  
+https://stackoverflow.com/questions/21468550/pip-not-working-behind-firewall
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
