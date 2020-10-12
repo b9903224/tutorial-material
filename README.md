@@ -21,6 +21,10 @@ https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E
 (半手動) https://emmanuelle.github.io/a-tutorial-on-segmentation.html  
 https://github.com/scikit-image/scikit-image/issues/4398
 
+#### 爬蟲
+selenium css locator 範例
+https://jzchangmark.wordpress.com/2015/03/16/selenium-%E4%BD%BF%E7%94%A8-css-locator-%E5%AE%9A%E4%BD%8D%E5%85%83%E4%BB%B6/
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
