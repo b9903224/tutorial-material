@@ -29,6 +29,9 @@ pip-not-working-behind-firewall
 https://stackoverflow.com/questions/21468550/pip-not-working-behind-firewall  
 https://www.internalpointers.com/post/install-python-modules-pip-behind-proxy
 
+proxy 查詢  
+https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
