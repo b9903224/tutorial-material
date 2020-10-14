@@ -45,7 +45,8 @@ http://matrix.etseq.urv.es/manuals/matlab/techdoc/install/pc/ch3_lic4.html
 https://www.mathworks.com/help/install/license/concurrent-licenses.html  
 
 #### ROI
-https://www.mathworks.com/help/images/measure-distances-in-images.html  
+拉直線量距離: https://www.mathworks.com/help/images/measure-distances-in-images.html  
+內插選轉的矩形ROI: https://www.mathworks.com/matlabcentral/fileexchange/48674-extract-rotated-patch-from-image
 
 #### Callback Definition
 https://www.mathworks.com/help/matlab/creating_plots/callback-definition.html
@@ -69,6 +70,14 @@ imreconstruct介紹 https://blogs.mathworks.com/steve/2008/07/14/opening-by-reco
 #### 影像紋理萃取範例
 https://www.mathworks.com/help/images/texture-segmentation-using-gabor-filters.html  
 https://www.mathworks.com/help/images/texture-segmentation-using-texture-filters.html
+
+#### 影像分割
+https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html  
+https://www.mathworks.com/help/images/ref/imsegkmeans.html  
+https://www.mathworks.com/help/images/land-classification-with-color-features-and-superpixels.html
+
+#### 八連通骨架化
+https://www.mathworks.com/help/images/ref/bwskel.html
 
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
