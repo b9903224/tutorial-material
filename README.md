@@ -66,6 +66,10 @@ imreconstruct介紹 https://blogs.mathworks.com/steve/2008/07/14/opening-by-reco
 #### GUI
 影像點擊callback https://stackoverflow.com/questions/41718666/interactive-mouse-click-on-the-image-area-in-matlab-gui
 
+#### 影像紋理萃取範例
+https://www.mathworks.com/help/images/texture-segmentation-using-gabor-filters.html  
+https://www.mathworks.com/help/images/texture-segmentation-using-texture-filters.html
+
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
 https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/content/environment-variable.html
