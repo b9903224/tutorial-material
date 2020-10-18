@@ -1,0 +1,1 @@
+https://github.com/pywinauto/SWAPY/releases
