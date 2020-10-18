@@ -21,6 +21,24 @@ https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E
 (半手動) https://emmanuelle.github.io/a-tutorial-on-segmentation.html  
 https://github.com/scikit-image/scikit-image/issues/4398
 
+#### 爬蟲
+selenium css locator 範例
+https://jzchangmark.wordpress.com/2015/03/16/selenium-%E4%BD%BF%E7%94%A8-css-locator-%E5%AE%9A%E4%BD%8D%E5%85%83%E4%BB%B6/
+
+pip-not-working-behind-firewall  
+https://stackoverflow.com/questions/21468550/pip-not-working-behind-firewall  
+https://www.internalpointers.com/post/install-python-modules-pip-behind-proxy  
+https://www.itdaan.com/tw/d3691eb76d39ca110fcb732ff24d9301
+
+proxy 查詢  
+https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using
+
+#### RPA
+PyAutoGUI : 使用Python控制電腦  https://yanwei-liu.medium.com/pyautogui-%E4%BD%BF%E7%94%A8python%E6%93%8D%E6%8E%A7%E9%9B%BB%E8%85%A6-662cc3b18b80  
+
+#### ROI
+內插選轉的矩形ROI: https://stackoverflow.com/questions/49892205/extracting-patch-of-a-certain-size-at-certain-angle-with-given-center-from-an-im
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
@@ -33,7 +51,8 @@ http://matrix.etseq.urv.es/manuals/matlab/techdoc/install/pc/ch3_lic4.html
 https://www.mathworks.com/help/install/license/concurrent-licenses.html  
 
 #### ROI
-https://www.mathworks.com/help/images/measure-distances-in-images.html  
+拉直線量距離: https://www.mathworks.com/help/images/measure-distances-in-images.html  
+內插選轉的矩形ROI: https://www.mathworks.com/matlabcentral/fileexchange/48674-extract-rotated-patch-from-image
 
 #### Callback Definition
 https://www.mathworks.com/help/matlab/creating_plots/callback-definition.html
@@ -53,6 +72,18 @@ imreconstruct介紹 https://blogs.mathworks.com/steve/2008/07/14/opening-by-reco
 
 #### GUI
 影像點擊callback https://stackoverflow.com/questions/41718666/interactive-mouse-click-on-the-image-area-in-matlab-gui
+
+#### 影像紋理萃取範例
+https://www.mathworks.com/help/images/texture-segmentation-using-gabor-filters.html  
+https://www.mathworks.com/help/images/texture-segmentation-using-texture-filters.html
+
+#### 影像分割
+https://www.mathworks.com/help/images/color-based-segmentation-using-k-means-clustering.html  
+https://www.mathworks.com/help/images/ref/imsegkmeans.html  
+https://www.mathworks.com/help/images/land-classification-with-color-features-and-superpixels.html
+
+#### 八連通骨架化
+https://www.mathworks.com/help/images/ref/bwskel.html
 
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
