@@ -33,6 +33,9 @@ https://www.itdaan.com/tw/d3691eb76d39ca110fcb732ff24d9301
 proxy 查詢  
 https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using
 
+#### RPA
+PyAutoGUI : 使用Python控制電腦  https://yanwei-liu.medium.com/pyautogui-%E4%BD%BF%E7%94%A8python%E6%93%8D%E6%8E%A7%E9%9B%BB%E8%85%A6-662cc3b18b80  
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
