@@ -28,7 +28,13 @@ https://jzchangmark.wordpress.com/2015/03/16/selenium-%E4%BD%BF%E7%94%A8-css-loc
 pip-not-working-behind-firewall  
 https://stackoverflow.com/questions/21468550/pip-not-working-behind-firewall  
 https://www.internalpointers.com/post/install-python-modules-pip-behind-proxy  
-https://www.itdaan.com/tw/d3691eb76d39ca110fcb732ff24d9301
+https://www.itdaan.com/tw/d3691eb76d39ca110fcb732ff24d9301  
+https://stackoverflow.com/questions/40650846/pip-behind-a-company-proxy-workaround  
+*https://www.semicolonworld.com/question/43488/using-pip-behind-a-proxy  
+https://www.rushworth.us/lisa/?p=5485  
+https://stackoverflow.com/questions/2989466/configuring-fiddler-to-use-company-networks-proxy  
+https://stackoverflow.com/questions/14149422/using-pip-behind-a-proxy-with-cntlm  
+
 
 proxy 查詢  
 https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using
