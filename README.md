@@ -114,7 +114,8 @@ https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/con
 
 ## 爬蟲
 [Python實戰應用]淺談Python Selenium網站自動化套件  
-https://www.learncodewithmike.com/2020/02/python-selenium.html
+https://www.learncodewithmike.com/2020/02/python-selenium.html  
+Beautiful Soup + Pandas Dataframe + Table: https://blog.csdn.net/Canhui_WANG/article/details/81269814
 
 ## Notepad ++
 如何使用Notepad++移除空白和換行符號  
