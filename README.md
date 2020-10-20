@@ -17,6 +17,12 @@ https://www.mathworks.com/matlabcentral/answers/425165-how-can-i-send-a-file-via
 #### 架簡單HTTP Server: 用IP就能訪問
 e.g.: python -m http.server 9000  
 https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E5%96%AE%E7%9A%84http%E6%9C%8D%E5%8B%99%E5%99%A8
+
+#### pip更新失敗
+pip install --upgrade pip
+--> python -m pip install --user --upgrade pip  
+https://github.com/pypa/pip/issues/5109
+
 #### watershed
 (半手動) https://emmanuelle.github.io/a-tutorial-on-segmentation.html  
 https://github.com/scikit-image/scikit-image/issues/4398
