@@ -25,7 +25,7 @@ https://github.com/scikit-image/scikit-image/issues/4398
 selenium css locator 範例
 https://jzchangmark.wordpress.com/2015/03/16/selenium-%E4%BD%BF%E7%94%A8-css-locator-%E5%AE%9A%E4%BD%8D%E5%85%83%E4%BB%B6/
 
-pip-not-working-behind-firewall  
+#### pip-not-working-behind-firewall  
 https://stackoverflow.com/questions/21468550/pip-not-working-behind-firewall  
 https://www.internalpointers.com/post/install-python-modules-pip-behind-proxy  
 https://www.itdaan.com/tw/d3691eb76d39ca110fcb732ff24d9301  
@@ -34,6 +34,13 @@ https://stackoverflow.com/questions/40650846/pip-behind-a-company-proxy-workarou
 https://www.rushworth.us/lisa/?p=5485  
 https://stackoverflow.com/questions/2989466/configuring-fiddler-to-use-company-networks-proxy  
 https://stackoverflow.com/questions/14149422/using-pip-behind-a-proxy-with-cntlm  
+https://stackoverflow.com/questions/25981703/pip-install-fails-with-connection-error-ssl-certificate-verify-failed-certi
+
+SOP
+1. Fiddler: "Rules" => click "Automatically Authenticate"
+2. type 127.0.0.1:8888 on chorme (just test)
+3. request.get("www.google.com", proxies=...) (just test)
+4. pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org pip [package]
 
 
 proxy 查詢  
