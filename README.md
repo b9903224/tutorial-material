@@ -120,3 +120,17 @@ Beautiful Soup + Pandas Dataframe + Table: https://blog.csdn.net/Canhui_WANG/art
 ## Notepad ++
 如何使用Notepad++移除空白和換行符號  
 https://kirstycx.wordpress.com/2018/03/17/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8notepad%E7%A7%BB%E9%99%A4%E7%A9%BA%E7%99%BD%E5%92%8C%E6%8F%9B%E8%A1%8C%E7%AC%A6%E8%99%9F/  
+
+## 發信相關 (待消化)
+https://stackoverflow.com/questions/6332577/send-outlook-email-via-python  
+https://www.coder.work/article/346349  
+http://www.w3big.com/zh-TW/python/python-email.html  
+https://www.cnblogs.com/xiaoxi-3-/p/9158871.html  
+https://www.aventistech.com/2016/03/07/python-send-email-via-office-365-tls/  
+https://ithelp.ithome.com.tw/questions/10124498  
+https://www.itread01.com/content/1544639973.html  
+https://stackoverflow.com/questions/30314618/having-trouble-with-sending-an-email-through-smtp-python  
+https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/367284/  
+https://gist.github.com/dasgoll/2f27ec2b703fbcb49a273d550d7865f8  
+https://www.opencli.com/linux/port-25-465-587  
+
