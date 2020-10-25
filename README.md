@@ -68,6 +68,10 @@ https://stackoverflow.com/questions/20956424/how-do-i-generate-and-open-an-outlo
 PYTHON读取EXCEL内容再转变成HTML添加到OUTLOOK中: https://www.yinyubo.cn/?p=339  
 HTML基本架構: http://www.pcnet.idv.tw/
 
+#### Outlook-Python-Tutorial
+https://github.com/israel-dryer/Outlook-Python-Tutorial/wiki  
+https://github.com/israel-dryer/Outlook-Python-Tutorial
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
