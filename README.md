@@ -1,6 +1,6 @@
 # tutorial-material
 
-MATLAB:
+## MATLAB:
 MATLAB web app server
 How can I send a file via Web Application
 https://www.mathworks.com/matlabcentral/answers/425165-how-can-i-send-a-file-via-web-application
@@ -64,6 +64,9 @@ https://blog.51cto.com/indie/1626378
 
 #### Send Outlook Email Via Python
 https://stackoverflow.com/questions/6332577/send-outlook-email-via-python  
+https://stackoverflow.com/questions/20956424/how-do-i-generate-and-open-an-outlook-email-with-python-but-do-not-send  
+PYTHON读取EXCEL内容再转变成HTML添加到OUTLOOK中: https://www.yinyubo.cn/?p=339  
+HTML基本架構: http://www.pcnet.idv.tw/
 
 ## Excel
 公式現形: Ctrl+~  
