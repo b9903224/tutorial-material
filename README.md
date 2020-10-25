@@ -58,6 +58,10 @@ PyAutoGUI : 使用Python控制電腦  https://yanwei-liu.medium.com/pyautogui-%E
 #### ROI
 內插選轉的矩形ROI: https://stackoverflow.com/questions/49892205/extracting-patch-of-a-certain-size-at-certain-angle-with-given-center-from-an-im
 
+#### win32.Dispatch vs win32.gencache in Python
+https://stackoverflow.com/questions/50127959/win32-dispatch-vs-win32-gencache-in-python-what-are-the-pros-and-cons  
+https://blog.51cto.com/indie/1626378  
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
