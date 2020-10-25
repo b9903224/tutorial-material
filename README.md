@@ -62,6 +62,9 @@ PyAutoGUI : 使用Python控制電腦  https://yanwei-liu.medium.com/pyautogui-%E
 https://stackoverflow.com/questions/50127959/win32-dispatch-vs-win32-gencache-in-python-what-are-the-pros-and-cons  
 https://blog.51cto.com/indie/1626378  
 
+#### Send Outlook Email Via Python
+https://stackoverflow.com/questions/6332577/send-outlook-email-via-python  
+
 ## Excel
 公式現形: Ctrl+~  
 切換絕對/相對座標: F4  
