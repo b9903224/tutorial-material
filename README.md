@@ -79,6 +79,9 @@ Excel 基礎教學 https://www.youtube.com/playlist?list=PL7enJ2-v6SPm-EHMuRMCG7
 Outlook寄信內嵌Excel tabl: 
 https://www.youtube.com/watch?v=SzoGKwmHhNk&ab_channel=greggowaffles  
 https://www.youtube.com/watch?v=9q8gZF0UOt8&t=8s&ab_channel=greggowaffles
+RangetoHTML:  http://www.rondebruin.nl/win/s1/outlook/bmail2.htm
+RangetoHTML(樞紐表也可以):  https://blog.csdn.net/cxygs5788/article/details/106351221
+RangetoHTML(樞紐表也可以):  https://bytes.com/topic/excel/insights/964626-rangetohtml-upgraded-function-using-export-table-htmlbody-excel-vba
 
 ## MATLAB 
 #### License Mangager Timeout設定  
