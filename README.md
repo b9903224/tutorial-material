@@ -54,9 +54,10 @@ https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using
 
 #### RPA
 PyAutoGUI : 使用Python控制電腦  https://yanwei-liu.medium.com/pyautogui-%E4%BD%BF%E7%94%A8python%E6%93%8D%E6%8E%A7%E9%9B%BB%E8%85%A6-662cc3b18b80  
-https://officeguide.cc/python-call-execute-excel-vba-macro-tutorial-example/
+https://officeguide.cc/python-call-execute-excel-vba-macro-tutorial-example/  
 win32.Dispatch vs win32.gencache in Python  https://stackoverflow.com/questions/50127959/win32-dispatch-vs-win32-gencache-in-python-what-are-the-pros-and-cons  
-Python 呼叫 Excel VBA 自動化執行巨集程式教學與範例  https://blog.51cto.com/indie/1626378  
+Python启动Excel https://blog.51cto.com/indie/1626378  
+Python 呼叫 Excel VBA 自動化執行巨集程式教學與範例  https://officeguide.cc/python-call-execute-excel-vba-macro-tutorial-example/
 
 #### ROI
 內插選轉的矩形ROI: https://stackoverflow.com/questions/49892205/extracting-patch-of-a-certain-size-at-certain-angle-with-given-center-from-an-im
