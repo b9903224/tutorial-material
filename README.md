@@ -23,6 +23,10 @@ pip install --upgrade pip
 --> python -m pip install --user --upgrade pip  
 https://github.com/pypa/pip/issues/5109
 
+#### 平行運算 & namedtupple
+https://dbader.org/blog/python-parallel-computing-in-60-seconds#.  
+
+
 #### watershed
 (半手動) https://emmanuelle.github.io/a-tutorial-on-segmentation.html  
 https://github.com/scikit-image/scikit-image/issues/4398
