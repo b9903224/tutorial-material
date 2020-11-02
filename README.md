@@ -61,6 +61,7 @@ PyAutoGUI : 使用Python控制電腦  https://yanwei-liu.medium.com/pyautogui-%E
 win32.Dispatch vs win32.gencache in Python  https://stackoverflow.com/questions/50127959/win32-dispatch-vs-win32-gencache-in-python-what-are-the-pros-and-cons  
 Python启动Excel https://cloud.tencent.com/developer/article/1572587  
 Python 呼叫 Excel VBA 自動化執行巨集程式教學與範例  https://officeguide.cc/python-call-execute-excel-vba-macro-tutorial-example/
+Python 打開 excel 唯讀: wb = xl.Workbooks.Open(file_path, None, True), 第三個參數為Ture, 命名引數似乎不管用? 
 
 #### ROI
 內插選轉的矩形ROI: https://stackoverflow.com/questions/49892205/extracting-patch-of-a-certain-size-at-certain-angle-with-given-center-from-an-im
