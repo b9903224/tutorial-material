@@ -1,13 +1,5 @@
 # tutorial-material
 
-## MATLAB:
-MATLAB web app server
-How can I send a file via Web Application
-https://www.mathworks.com/matlabcentral/answers/425165-how-can-i-send-a-file-via-web-application
-
-
-## PROGRAMMING OF FINITE DIFFERENCE METHODS IN MATLAB.pdf  
-可參考https://en.wikipedia.org/wiki/Five-point_stencil裡面的2D
 
 ## nonadmin: 執行要admin的執行檔
 1. 將exe執行到此nonadmin.bat
@@ -89,6 +81,16 @@ RangetoHTML(樞紐表也可以):  https://blog.csdn.net/cxygs5788/article/detail
 RangetoHTML(樞紐表也可以):  https://bytes.com/topic/excel/insights/964626-rangetohtml-upgraded-function-using-export-table-htmlbody-excel-vba  
 
 ## MATLAB 
+
+
+#### MATLAB web app server
+How can I send a file via Web Application
+https://www.mathworks.com/matlabcentral/answers/425165-how-can-i-send-a-file-via-web-application
+
+
+#### PROGRAMMING OF FINITE DIFFERENCE METHODS IN MATLAB.pdf  
+可參考https://en.wikipedia.org/wiki/Five-point_stencil裡面的2D
+
 #### License Mangager Timeout設定  
 http://matrix.etseq.urv.es/manuals/matlab/techdoc/install/pc/ch3_lic4.html  
 https://www.mathworks.com/help/install/license/concurrent-licenses.html  
@@ -128,6 +130,9 @@ https://www.mathworks.com/help/images/land-classification-with-color-features-an
 
 #### 八連通骨架化
 https://www.mathworks.com/help/images/ref/bwskel.html
+
+#### 標籤矩陣轉換index (替代bwconncomp(watershed(img)~=0))
+https://www.mathworks.com/help/images/ref/label2idx.html
 
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
