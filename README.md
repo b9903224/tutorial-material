@@ -87,6 +87,9 @@ RangetoHTML(樞紐表也可以):  https://bytes.com/topic/excel/insights/964626-
 How can I send a file via Web Application
 https://www.mathworks.com/matlabcentral/answers/425165-how-can-i-send-a-file-via-web-application
 
+#### MCR cache 路徑
+e.g.: C:\user_name\AppData\Local\Temp\userid\mcrCachen.nn  
+https://www.mathworks.com/matlabcentral/answers/33638-could-not-access-the-mcr-component-cache-error
 
 #### PROGRAMMING OF FINITE DIFFERENCE METHODS IN MATLAB.pdf  
 可參考https://en.wikipedia.org/wiki/Five-point_stencil裡面的2D
