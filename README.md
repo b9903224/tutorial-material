@@ -44,6 +44,14 @@ SOP
 3. request.get("www.google.com", proxies=...) (just test)
 4. pip install --proxy "127.0.0.1:8888" --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org pip [package]
 
+#### pandas操作
+DataFrame處理雙維度資料方法: https://www.learncodewithmike.com/2020/11/python-pandas-dataframe-tutorial.html  
+iterrows(), iteritems(), itertuples()对dataframe进行遍历: https://www.cnblogs.com/keye/p/9673393.html  
+pandas .at versus .loc --> 說明at效能比較好: https://stackoverflow.com/questions/37216485/pandas-at-versus-loc  
+Pandas(Python中的Excel)Day4-DataFrame的新增、迴圈與刪除: https://ithelp.ithome.com.tw/articles/10191774?sc=iThelpR  
+Update a dataframe in pandas while iterating row by row: https://stackoverflow.com/questions/23330654/update-a-dataframe-in-pandas-while-iterating-row-by-row/29262040  
+Does pandas iterrows have performance issues?: https://stackoverflow.com/questions/24870953/does-pandas-iterrows-have-performance-issues  
+
 
 proxy 查詢  
 https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using
