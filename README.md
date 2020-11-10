@@ -145,6 +145,10 @@ https://www.mathworks.com/help/images/ref/bwskel.html
 #### 標籤矩陣轉換index (替代bwconncomp(watershed(img)~=0))
 https://www.mathworks.com/help/images/ref/label2idx.html
 
+#### 修補影像
+https://www.mathworks.com/help/images/ref/inpaintcoherent.html  
+https://www.mathworks.com/help/images/ref/inpaintexemplar.html  
+
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
 https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/content/environment-variable.html
