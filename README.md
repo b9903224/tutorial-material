@@ -149,6 +149,9 @@ https://www.mathworks.com/help/images/ref/label2idx.html
 https://www.mathworks.com/help/images/ref/inpaintcoherent.html  
 https://www.mathworks.com/help/images/ref/inpaintexemplar.html  
 
+#### 形態學範例
+http://jun.hansung.ac.kr/jun/DI/Chapter-6.htm  
+
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
 https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/content/environment-variable.html
