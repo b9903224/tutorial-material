@@ -52,6 +52,8 @@ Pandas(Python中的Excel)Day4-DataFrame的新增、迴圈與刪除: https://ithe
 Update a dataframe in pandas while iterating row by row: https://stackoverflow.com/questions/23330654/update-a-dataframe-in-pandas-while-iterating-row-by-row/29262040  
 Does pandas iterrows have performance issues?: https://stackoverflow.com/questions/24870953/does-pandas-iterrows-have-performance-issues  
 
+#### 透過bat啟動虛擬環境和執行.py檔
+https://stackoverflow.com/questions/30927567/a-python-script-that-activates-the-virtualenv-and-then-runs-another-python-scrip  
 
 proxy 查詢  
 https://superuser.com/questions/346372/how-do-i-know-what-proxy-server-im-using
@@ -148,6 +150,9 @@ https://www.mathworks.com/help/images/ref/label2idx.html
 #### 修補影像
 https://www.mathworks.com/help/images/ref/inpaintcoherent.html  
 https://www.mathworks.com/help/images/ref/inpaintexemplar.html  
+
+#### 形態學範例
+http://jun.hansung.ac.kr/jun/DI/Chapter-6.htm  
 
 ## bat
 windows環境變數: 查詢/新增/修改/刪除  
