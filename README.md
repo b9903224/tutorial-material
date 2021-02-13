@@ -167,6 +167,11 @@ https://shaochien.gitbooks.io/command-line-and-environment-variable-tutorial/con
 https://www.learncodewithmike.com/2020/02/python-selenium.html  
 Beautiful Soup + Pandas Dataframe + Table: https://blog.csdn.net/Canhui_WANG/article/details/81269814
 
+[Chrome 開發者工具] Query String Parameters 轉 json in notepad++
+1. 規則運算式: ^->"
+2. 規則運算式: $->:,
+3. 一般: : " ->":" #前面冒號後面有空白
+
 ## Notepad ++
 如何使用Notepad++移除空白和換行符號  
 https://kirstycx.wordpress.com/2018/03/17/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8notepad%E7%A7%BB%E9%99%A4%E7%A9%BA%E7%99%BD%E5%92%8C%E6%8F%9B%E8%A1%8C%E7%AC%A6%E8%99%9F/  
