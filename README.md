@@ -90,6 +90,9 @@ RangetoHTML:  http://www.rondebruin.nl/win/s1/outlook/bmail2.htm
 RangetoHTML(樞紐表也可以):  https://blog.csdn.net/cxygs5788/article/details/106351221  
 RangetoHTML(樞紐表也可以):  https://bytes.com/topic/excel/insights/964626-rangetohtml-upgraded-function-using-export-table-htmlbody-excel-vba  
 
+## Tkinter
+部件透明  https://www.youtube.com/watch?v=75jbNpc8vN4&ab_channel=freeCodeCamp.org  
+
 ## MATLAB 
 
 
