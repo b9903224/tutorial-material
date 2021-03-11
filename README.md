@@ -108,6 +108,12 @@ https://www.mathworks.com/matlabcentral/answers/33638-could-not-access-the-mcr-c
 http://matrix.etseq.urv.es/manuals/matlab/techdoc/install/pc/ch3_lic4.html  
 https://www.mathworks.com/help/install/license/concurrent-licenses.html  
 
+#### License Mangager 限制連線人數設定 (FLEXlm Administrator)
+http://www2.geog.ucl.ac.uk/~plewis/bpms/nag/flso621dcl/license/htmlman/flexuser/chap5.htm#wp909587  
+https://www-local.pdc.kth.se/doc/pgi/3.3/flexuser/chap5.htm  
+https://www.mathworks.com/matlabcentral/answers/100865-is-there-a-way-to-administer-flexnet-based-licenses-how-do-i-create-an-options-file  
+https://www.mathworks.com/matlabcentral/answers/91983-how-do-i-configure-an-options-file-with-multiple-licenses  
+
 #### ROI
 拉直線量距離: https://www.mathworks.com/help/images/measure-distances-in-images.html  
 內插選轉的矩形ROI: https://www.mathworks.com/matlabcentral/fileexchange/48674-extract-rotated-patch-from-image
