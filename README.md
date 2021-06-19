@@ -10,6 +10,11 @@
 e.g.: python -m http.server 9000  
 https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E5%96%AE%E7%9A%84http%E6%9C%8D%E5%8B%99%E5%99%A8
 
+#### python實現實時電腦監控
+https://www.twblogs.net/a/5b7fe81b2b717767c6b26dd6  
+https://blog.csdn.net/qiqiyingse/article/details/81668345  
+https://twgreatdaily.com/MoKsnnEBfGB4SiUwia1x.html
+
 #### pip更新失敗
 pip install --upgrade pip
 --> python -m pip install --user --upgrade pip  
