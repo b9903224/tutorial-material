@@ -15,6 +15,10 @@ https://www.twblogs.net/a/5b7fe81b2b717767c6b26dd6
 https://blog.csdn.net/qiqiyingse/article/details/81668345  
 https://twgreatdaily.com/MoKsnnEBfGB4SiUwia1x.html
 
+#### screenshot 速度比較
+https://www.programmersought.com/article/49766989757/#0x05__160  
+https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/360002/  
+
 #### pip更新失敗
 pip install --upgrade pip
 --> python -m pip install --user --upgrade pip  
