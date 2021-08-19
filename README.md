@@ -1,5 +1,13 @@
 # tutorial-material
 
+## 远程桌面报错解决：No Remote Desktop License Servers Available
+https://www.youtube.com/watch?v=Y7fo1TOsHrE  
+https://blog.csdn.net/weixin_30463341/article/details/99592765  
+https://blog.csdn.net/weixin_43529968/article/details/109385490  
+https://cloud.tencent.com/developer/article/1068337 
+https://kwsupport.com/2014/03/windows-2012-no-remote-desktop-license-servers-available/  
+https://ravingroo.com/949/server-2012-rds-no-remote-desktop-license-servers-available/  
+
 
 ## nonadmin: 執行要admin的執行檔
 1. 將exe執行到此nonadmin.bat
