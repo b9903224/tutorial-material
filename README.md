@@ -18,6 +18,10 @@ https://www.repairwin.com/fix-reset-120-days-grace-period-of-rds-server-2016-201
 e.g.: python -m http.server 9000  
 https://riptutorial.com/zh-TW/python/example/14866/%E9%81%8B%E8%A1%8C%E7%B0%A1%E5%96%AE%E7%9A%84http%E6%9C%8D%E5%8B%99%E5%99%A8
 
+#### skimage 連通成分的參數定義
+1為4連通, 2為8連通    
+https://scikit-image.org/docs/dev/api/skimage.morphology.html#skimage.morphology.label    
+
 #### python實現實時電腦監控
 https://www.twblogs.net/a/5b7fe81b2b717767c6b26dd6  
 https://blog.csdn.net/qiqiyingse/article/details/81668345  
@@ -58,8 +62,9 @@ https://stackoverflow.com/questions/25981703/pip-install-fails-with-connection-e
 SOP
 1. Fiddler: "Rules" => click "Automatically Authenticate"
 2. type 127.0.0.1:8888 on chorme (just test)
-3. request.get("www.google.com", proxies=...) (just test)
-4. pip install --proxy "127.0.0.1:8888" --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org pip [package]
+3. import requets requests.get("www.google.com", proxies=...) (just test), 新版的proxies要用字典形式
+4. pip install --proxy "127.0.0.1:8888" --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org [package]
+5. 新版的--proxy 設定要設在環境變數: https://stackoverflow.com/questions/49979354/python-pip-install-proxy-error-cannot-connect-to-proxy-oserror
 
 #### pandas操作
 DataFrame處理雙維度資料方法: https://www.learncodewithmike.com/2020/11/python-pandas-dataframe-tutorial.html  
